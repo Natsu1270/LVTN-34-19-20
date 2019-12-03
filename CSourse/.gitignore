@@ -1,0 +1,6 @@
+__pycache__/
+*.pyproj
+*.pyc
+venv/
+.idea/
+
