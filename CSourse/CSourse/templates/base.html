@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="{% block html_lang_code %}end{% endblock %}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="ROBOTS" content="ALL" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <meta name="Copyright" content="BKU Ho Chi Minh City" />
+  <meta name="keywords" content="Courses, online certificate, IT, learning" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="{% block description %}{% endblock %}" />
+
+  {% block link_rel_tags %}{% endblock link_rel_tags %}
+  <title>{% block title %}Computer Science courses for everyone{% endblock %}|CSourse</title>
+
+   <!-- Favicons -->
+  <link rel="apple-touch-icon" href="{% static "img/temp-logo.png" %}">
+  <link rel="icon" sizes="192x192" href="{% static "img/temp-logo.png" %}">
+  <link rel="shortcut icon" href="{% static "img/temp-logo.ico" %}">
+  <meta name="msapplication-TileColor" content="#113228">
+  <meta name="msapplication-TileImage" content="{% static "img/temp-logo.png" %}">
+
+  <link rel="stylesheet" href="{% static "css/output.css" %}" >
+
+</head>
+<body>
+  
+</body>
+</html>
