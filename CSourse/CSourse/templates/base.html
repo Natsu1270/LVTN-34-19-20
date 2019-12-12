@@ -26,5 +26,15 @@
 </head>
 <body>
   
+  {% include "common/header.html" %}
+  
+  {% block content %}{% endblock %}
+  
+  {% block footer %}
+    {% include "common/footer.html" %}
+  {% endblock %}
+
+  <script src="{% static 'js/main.js' %}"></script>
+
 </body>
 </html>

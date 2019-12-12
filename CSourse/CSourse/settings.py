@@ -122,4 +122,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(PROJECT_PACKAGE, 'static')
+# STATIC_ROOT = os.path.join(PROJECT_PACKAGE, 'static')
+
