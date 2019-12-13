@@ -1,2 +1,1 @@
-const x = 1;
-alert(x);
+import "../../scss/output.scss";
