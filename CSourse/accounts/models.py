@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 
 class Profile(models.Model):
@@ -21,7 +22,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=200, blank=True)
     fullname = models.CharField(max_length=200, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    avatar = models.ImageField(upload_to='/account/profile/avatar')
+    avatar = models.ImageField(upload_to='account/profile/avatar')
     email = models.EmailField(max_length=200, blank=True)
     phone_number = models.CharField(max_length=20, blank=True)
     birth_date = models.DateField()
@@ -40,6 +41,7 @@ class Trainee(models.Model):
 
 class Teacher(models.Model):
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+
 
 
 

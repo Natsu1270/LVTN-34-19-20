@@ -20,21 +20,23 @@
   <link rel="shortcut icon" href="{% static "img/temp-logo.ico" %}">
   <meta name="msapplication-TileColor" content="#113228">
   <meta name="msapplication-TileImage" content="{% static "img/temp-logo.png" %}">
-
-  <link rel="stylesheet" href="{% static "css/output.css" %}" >
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
 
 </head>
 <body>
   
-  {% include "common/header.html" %}
+  <div class="page">
+    {% include "common/header.html" %}
   
-  {% block content %}{% endblock %}
-  
-  {% block footer %}
+    {% block content %}{% endblock %}
+    
+    {% block footer %}
+      
     {% include "common/footer.html" %}
-  {% endblock %}
+    {% endblock %}
+  </div>
 
-  <script src="{% static 'bundle.js' %}"></script>
+  <script src="{% static 'dist/bundle.js' %}"></script>
 
 </body>
 </html>

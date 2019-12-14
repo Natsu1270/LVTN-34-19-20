@@ -1,5 +1,26 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-  <div class="content text-primary">Hello world!</div>
+  <section class="section section-banner" id="cs-banner">
+    <div class="banner-content">
+      <div class="banner-content-left">
+        <div class="container">
+          <div class="banner-slogan">
+            <h1>Learn online earn <p>certificates</p></h1>
+          </div>
+          <div class="banner-description mt-5">
+            <h5>Develop your skills through online courses, certificates and diplomas offered by the best universities and companies in the world</h5>
+          </div>
+          <button class="banner-btn btn mt-5">
+            Register Now
+          </button>
+        </div>
+      </div>
+      <div class="banner-content-right">
+        <img src="{% static 'img/banner.png' %}" alt="">
+      </div>
+    </div>
+    
+  </section>
 {% endblock %}

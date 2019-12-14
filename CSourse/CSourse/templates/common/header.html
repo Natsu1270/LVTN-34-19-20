@@ -1,0 +1,48 @@
+{% load static %}
+<header class="cs-main-header" id="main-header" role="header">
+    <div class="header-content">
+      <nav class="navbar navbar-extend-lg cs-navbar">
+        <a href="{% url 'homepage' %}" class="navbar-brand cs-logo">
+          <img src="{% static 'img/temp-logo.png' %}" alt="cs-logo">
+        </a>
+{#        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar_supported" aria-expanded="false" aria-label="Toggle navigation">#}
+{#            <i class="far fa-bars"></i>#}
+{#        </button>#}
+        <div class="navbar_supported cs-navbar-item">
+          <ul class="navbar-nav">
+            <li class="search_box">
+              <form action="{% url 'homepage' %}" method="get" class="form-inline">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="search-course" aria-label="search" placeholder="Tìm khoá học...">
+                  <div class="input-group-pretend">
+                    <button type="submit" class="btn cs-search-btn"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </form>
+            </li>
+            <li class="header-item">
+              <a href="#">About</a>
+            </li>
+            <li class="header-item">
+              <a href="#">Explore</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item active-nav cs-action-btn" id="logout-btn">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <input type="submit" class="btn nav-link" id="logout-input" value="Logout"/>
+                    </form>
+                </li>
+            {% else %}
+                <li class="nav-item active-nav cs-action-btn" id="signup-btn">
+                  <a class="nav-link" href="">Sign up</a>
+                </li>
+                <li class="nav-item active-nav cs-action-btn">
+                  <a class="nav-link" href="">Log in</a>
+                </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+  </div>
+</header>
