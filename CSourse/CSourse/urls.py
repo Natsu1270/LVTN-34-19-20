@@ -22,4 +22,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='homepage.html'), name="homepage"),
+    path('about/', TemplateView.as_view(template_name='about.html'), name="about"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

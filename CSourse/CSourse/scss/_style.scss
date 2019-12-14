@@ -46,7 +46,7 @@ body section.row, body header.row, body footer.row {
 
 // header
 .cs-main-header {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -230,6 +230,8 @@ body section.row, body header.row, body footer.row {
 			right: 0;
 		}
 	}
+}
 
-
+.p{
+     font-family: "Times New Roman";
 }
