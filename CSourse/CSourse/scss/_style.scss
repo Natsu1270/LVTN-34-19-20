@@ -40,15 +40,19 @@ body ul li {
 body section.row, body header.row, body footer.row {
   margin: 0;
 }
+
+.section {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
 .page {
 	position: relative;
 }
 
 // header
 .cs-main-header {
-	position: absolute;
-	top: 0;
-	left: 0;
+	position: relative;
 	width: 100%;
 	z-index: 1000;
 	height: 120px;
@@ -56,7 +60,6 @@ body section.row, body header.row, body footer.row {
 	.header-content{
 		.cs-navbar {
 			justify-content: flex-start;
-
 			.cs-navbar-item {
 				display: flex;
 				align-items: center;
@@ -164,7 +167,7 @@ body section.row, body header.row, body footer.row {
 		position: absolute;
 		content: url("../static/img/banner-background.png");
 		right: 0;
-		top: 100px;
+		top: 0;
 		z-index: -1;
 	}
 
@@ -176,7 +179,7 @@ body section.row, body header.row, body footer.row {
 	.banner-content {
 		.banner-content-left {
 			position: absolute;
-			top: 200px;
+			top: 130px;
 			left: 0;
 			z-index: 900;
 			max-width: 50%;
@@ -226,7 +229,7 @@ body section.row, body header.row, body footer.row {
 		}
 		.banner-content-right {
 			position: absolute;
-			top: 60px;
+			top: -40px;
 			right: 0;
 		}
 	}

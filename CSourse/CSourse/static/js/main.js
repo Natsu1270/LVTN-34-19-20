@@ -1,8 +1,8 @@
 import "../../scss/output.scss";
 import $ from "jquery";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 $(document).ready(() => {
-	console.log('document ready');
 	function fixedHeader() {
 		if ($('.cs-main-header').length) {
 			$(window).on('scroll', () => {

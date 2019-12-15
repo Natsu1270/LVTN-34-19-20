@@ -11,9 +11,9 @@
         <div class="navbar_supported cs-navbar-item">
           <ul class="navbar-nav">
             <li class="search_box">
-              <form action="{% url 'homepage' %}" method="get" class="form-inline">
+              <form action="{% url 'courses' %}" method="get" class="form-inline">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="search-course" aria-label="search" placeholder="Tìm khoá học...">
+                  <input type="text" class="form-control" name="search" aria-label="search" placeholder="Tìm khoá học...">
                   <div class="input-group-pretend">
                     <button type="submit" class="btn cs-search-btn"><i class="fa fa-search"></i></button>
                   </div>
@@ -24,7 +24,7 @@
               <a href="#">About</a>
             </li>
             <li class="header-item">
-              <a href="#">Explore</a>
+              <a href="{% url 'courses' %}">Explore</a>
             </li>
             {% if user.is_authenticated %}
                 <li class="nav-item active-nav cs-action-btn" id="logout-btn">

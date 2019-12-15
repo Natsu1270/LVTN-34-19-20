@@ -38,9 +38,15 @@ class Trainee(models.Model):
     major_field = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.profile.fullname
+
 
 class Teacher(models.Model):
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.profile.fullname
 
 
 
