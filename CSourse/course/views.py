@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Course
 
 
@@ -13,3 +13,10 @@ def courses(request):
     context['course_num'] = len(all_courses)
 
     return render(request, 'course/courses_show.html', context)
+
+
+def course_detail(request, course_code):
+    context = dict()
+    course = get_object_or_404(Course, code=course_code)
+    context['course'] = course
+    return render(request, 'course/course_detail.html', context)

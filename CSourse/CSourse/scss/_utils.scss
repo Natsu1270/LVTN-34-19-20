@@ -2,3 +2,25 @@
 
 $theme-font-color:						#5637f2 !default;
 $dark-blue-color: 						#242f6c !default;
+$theme-linear-color:					linear-gradient(90deg, rgba(86,55,242,1) 0%, rgba(127,121,241,1) 100%) !default;
+
+
+// Mixin
+
+@mixin banner-btn($background-color, $text-color) {
+	border-radius: 5px;
+	background: $background-color;
+	width: 200px;
+	height: 80px;
+	box-shadow: 0 19px 38px rgba(51, 0, 253, 0.29), 0 15px 12px rgba(52, 58, 251, 0.16);
+	color: $text-color;
+	font-weight: 700;
+	outline: none;
+	transition: background 500ms ease,color 500ms ease, box-shadow 500ms ease;
+	font-size: 20px;
+
+	&:hover {
+		box-shadow: none;
+		transition: background 500ms ease,color 500ms ease, box-shadow 500ms ease;
+	}
+}

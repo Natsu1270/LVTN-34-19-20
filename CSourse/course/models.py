@@ -40,3 +40,6 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+    def pretty_date(self):
+        return self.open_date.strftime('%b %e %Y')
+

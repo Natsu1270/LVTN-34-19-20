@@ -1,3 +1,5 @@
+@import "utils";
+
 h1 {
 	color: #00c6d1;
 }
@@ -41,11 +43,14 @@ h1 {
 				}
 				.card-body {
 					.card-title {
+						background: linear-gradient(90deg, #5637f2 0%, #7f79f1 100%);
+    					padding: 10px;
 						p {
 							font-size: 20px;
 						}
 						a {
-						text-decoration: none;
+							color: white;
+							text-decoration: none;
 						}
 					}
 
@@ -53,5 +58,57 @@ h1 {
 			}
 		}
 
+	}
+}
+
+
+.section-course-banner {
+	background: $theme-linear-color;
+	height: 400px;
+	.cs-nav-breadcrumb {
+		ol {
+			background: none;
+			padding-left: 0;
+			padding-top: 30px;
+			li {
+				color: white;
+				a {
+					color: white;
+				}
+			}
+			.breadcrumb-item + .breadcrumb-item::before {
+				content: '>';
+				color: white;
+			}
+
+		}
+	}
+
+	.course-banner {
+		.course-detail {
+			width: 60%;
+			.course-title {
+				margin-top: 30px;
+				color: white;
+			}
+			.course-description {
+				color: white;
+			}
+			.banner-btn {
+				@include banner-btn(white,$theme-font-color);
+				box-shadow: 0 19px 38px rgba(247, 247, 247, 0.1), 0 15px 12px rgba(255, 255, 255, 0.09);
+				height: 90px;
+			}
+
+			margin-right: 40px;
+		}
+
+		.course-avatar {
+			width: 30%;
+			img {
+				width: 100%;
+			}
+			margin-bottom: 40px;
+		}
 	}
 }

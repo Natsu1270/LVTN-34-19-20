@@ -73,7 +73,7 @@
             </div>
             <div class="card-body">
               <div class="card-title">
-                <p><a href="">{{ course.name }}</a></p>
+                <p><a href="{% url 'course_detail' course.code %}">{{ course.name }}</a></p>
               </div>
               <hr>
               <p>{{ course.get_level_display }}</p>

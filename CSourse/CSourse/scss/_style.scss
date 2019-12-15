@@ -20,7 +20,7 @@ input[type=number]:focus,
 
 body {
 	font-family: "Poppins", sans-serif;
-	background: #f2f2f2;
+	background: #fafafa;
 }
 body h1, body h2, body h3, body h4, body h5, body h6 {
   margin: 0;
@@ -209,22 +209,9 @@ body section.row, body header.row, body footer.row {
 			}
 
 			.banner-btn {
-				border-radius: 5px;
-				background: linear-gradient(90deg, rgba(86,55,242,1) 0%, rgba(127,121,241,1) 100%);
-				width: 200px;
-				height: 80px;
-				box-shadow: 0 19px 38px rgba(51, 0, 253, 0.29), 0 15px 12px rgba(52, 58, 251, 0.16);
-				color: white;
-				font-weight: 700;
-				outline: none;
-				transition: background 500ms ease,color 500ms ease, box-shadow 500ms ease;
-				font-size: 20px;
+				@include banner-btn($theme-linear-color,white);
 				margin-left: 30%;
 
-				&:hover {
-					box-shadow: none;
-					transition: background 500ms ease,color 500ms ease, box-shadow 500ms ease;
-				}
 			}
 		}
 		.banner-content-right {
