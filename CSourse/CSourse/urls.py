@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='homepage.html'), name="homepage"),
     path('courses/', include('course.urls')),
+    path('about/', TemplateView.as_view(template_name='about.html'), name="about"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
