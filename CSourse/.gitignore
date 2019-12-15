@@ -4,5 +4,5 @@ __pycache__/
 venv/
 .idea/
 node_modules/
-static/
 migrations/
+dist/
