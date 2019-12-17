@@ -64,7 +64,7 @@
   </h1>
   <section class="section section-course-show mt-3" id="cs-show-course">
     {% if course_num > 0 %}
-    <div class="courses-area d-flex justify-content-start">
+      <div class="courses-area d-flex justify-content-start">
       {% for course in courses %}
         <div class="course-item">
           <div class="course-card">
@@ -95,7 +95,12 @@
       {% endfor %}
     </div>
     {% else %}
-      <h3>Sorry there is no courses available!</h3>
+      <div class="courses-not-found">
+        <h3>Sorry there is no courses available!</h3>
+        <div class="des-img">
+          <img src="{% static 'img/not-found-data.png' %}" alt="" class="des-img__not-found-data">
+        </div>
+      </div>
     {% endif %}
     
   </section>

@@ -59,10 +59,4 @@
 	outline: none;
 	transition: background 500ms ease,color 500ms ease, box-shadow 500ms ease;
 	font-size: 20px;
-
-	&:hover {
-		color: $text-color;
-		box-shadow: none;
-		transition: background 500ms ease,color 500ms ease, box-shadow 500ms ease;
-	}
 }
