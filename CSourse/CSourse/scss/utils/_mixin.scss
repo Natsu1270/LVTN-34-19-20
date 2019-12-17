@@ -1,0 +1,68 @@
+@mixin responsive($breakpoint) {
+	@if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
+    }
+}
+
+@mixin font-face($style-name, $path, $category:"") {
+	$filepath : $path + $style-name;
+    @font-face {
+        font-family: "#{$style-name}";
+        src: url($filepath + ".eot");
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+    }
+    %#{$style-name} {
+        font: {
+            @if $category != "" {
+                family: "#{$style-name}", #{$category};
+            }
+            @else {
+                family: "#{$style-name}";
+                weight: normal;
+            }
+        }
+    }
+}
+
+@mixin clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin absCenter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin banner-btn($background-color, $text-color) {
+	border-radius: 5px;
+	background: $background-color;
+	width: 20rem;
+	height: 8rem;
+	box-shadow:$button-box-shadow;
+	color: $text-color;
+	font-weight: 700;
+	outline: none;
+	transition: background 500ms ease,color 500ms ease, box-shadow 500ms ease;
+	font-size: 20px;
+
+	&:hover {
+		color: $text-color;
+		box-shadow: none;
+		transition: background 500ms ease,color 500ms ease, box-shadow 500ms ease;
+	}
+}

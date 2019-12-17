@@ -1,20 +1,26 @@
-@import "utils";
-
 h1 {
 	color: #00c6d1;
 }
 
 .section-filter-course {
-	background: #f8f7ff;
+	margin-top: 30vh;
+	background: $main-blur-color;
 	padding-top: 20px;
 	padding-bottom: 20px;
+
+	.filter-area {
+		align-items: center;
+	}
+
 	.cs-filter-item {
 		margin-right: 50px;
-
+		width: 15rem;
 		.dropdown {
 			background: #5897fb;
+			border-radius: 0.2rem;
 			button {
 				color: #ffffff;
+				font-size: 1.3rem;
 			}
 		}
 	}

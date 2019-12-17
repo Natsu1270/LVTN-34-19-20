@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -83,15 +84,15 @@ WSGI_APPLICATION = 'CSourse.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'csourse',
-        'USER': 'Natsu',
-        'PASSWORD': 'Natsu1270',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'TEST': {
-            'NAME': 'TestDatabase'
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'USER': 'Natsu',
+        # 'PASSWORD': 'Natsu1270',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
+        # 'TEST': {
+        #     'NAME': 'TestDatabase'
+        # }
     }
 }
 

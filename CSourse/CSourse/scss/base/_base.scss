@@ -1,0 +1,64 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	outline: none;
+}
+
+html {
+	font-size: 62.5%;
+	@include responsive(tab-land) { // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
+
+    @include responsive(tab-port) { // width < 900?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+
+    @include responsive(big-desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }
+}
+
+body {
+    box-sizing: border-box;
+	background: $main-background-color;
+    @include responsive(tab-port) {
+        padding: 0;
+    }
+}
+
+// clear bootstrap input effects.
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus,
+button:link, button:visited, button:active, button:focus
+{
+	outline: none !important;
+	-webkit-appearance: none;
+	box-shadow: none !important;
+}
+
+button, input {
+	border-radius: 0;
+}
+
+.section {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.page {
+	position: relative;
+}

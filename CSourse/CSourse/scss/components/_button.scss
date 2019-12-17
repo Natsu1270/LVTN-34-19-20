@@ -1,0 +1,10 @@
+.btn {
+	&--cs-action {
+		box-shadow: $button-box-shadow;
+	}
+	&--banner {
+		@include banner-btn($theme-linear-color,white);
+		margin-left: 30%;
+	}
+}
+

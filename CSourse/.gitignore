@@ -6,3 +6,4 @@ venv/
 node_modules/
 migrations/
 dist/
+settings.py
