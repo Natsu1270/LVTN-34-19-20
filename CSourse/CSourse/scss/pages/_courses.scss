@@ -3,7 +3,7 @@ h1 {
 }
 
 .section-filter-course {
-	margin-top: 30vh;
+	margin-top: 20vh;
 	background: $main-blur-color;
 	padding-top: 30px;
 	padding-bottom: 40px;
@@ -36,23 +36,32 @@ h1 {
 			max-width: 25%;
 			flex-basis: 25%;
 			.course-card {
+				&:hover {
+					transform: scale(1.1);
+				}
+				transition: all 0.3s ease;
 				background: #ffffff;
 				text-align: center;
 				box-shadow: 0px 5px 15px 0px rgba(68,68,68,0.1);
 				border-radius: 5px;
-				height: 400px;
+				height: 50rem;
 				.card-avatar {
 					img {
-						width: 80%;
-						height: 200px;
+						width: 100%;
+						height: 25rem;
 					}
 				}
 				.card-body {
 					.card-title {
 						background: linear-gradient(90deg, #5637f2 0%, #7f79f1 100%);
-    					padding: 10px;
-						p {
-							font-size: 20px;
+    					padding: 0.3rem;
+						border-radius: .3rem;
+						cursor: pointer;
+						width: 50%;
+						margin: 0 auto;
+						transition: all 0.2s ease;
+						&:hover {
+							box-shadow: 0 0.5rem 1rem rgba(0,0,0,.2);
 						}
 						a {
 							color: white;
@@ -70,60 +79,10 @@ h1 {
 		.des-img {
 			text-align: center;
 			&__not-found-data {
-				width: 80%;
+				width: 40%;
 			}
 		}
 	}
 }
 
 
-.section-course-banner {
-	background: $theme-linear-color;
-	height: 400px;
-	.cs-nav-breadcrumb {
-		ol {
-			background: none;
-			padding-left: 0;
-			padding-top: 30px;
-			li {
-				color: white;
-				a {
-					color: white;
-				}
-			}
-			.breadcrumb-item + .breadcrumb-item::before {
-				content: '>';
-				color: white;
-			}
-
-		}
-	}
-
-	.course-banner {
-		.course-detail {
-			width: 60%;
-			.course-title {
-				margin-top: 30px;
-				color: white;
-			}
-			.course-description {
-				color: white;
-			}
-			.banner-btn {
-				@include banner-btn(white,$theme-font-color);
-				box-shadow: 0 19px 38px rgba(247, 247, 247, 0.1), 0 15px 12px rgba(255, 255, 255, 0.09);
-				height: 90px;
-			}
-
-			margin-right: 40px;
-		}
-
-		.course-avatar {
-			width: 30%;
-			img {
-				width: 100%;
-			}
-			margin-bottom: 40px;
-		}
-	}
-}

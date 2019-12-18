@@ -24,7 +24,7 @@ html {
 
 body {
     box-sizing: border-box;
-	background: $main-background-color;
+	background: $white-color;
     @include responsive(tab-port) {
         padding: 0;
     }
@@ -55,8 +55,8 @@ button, input {
 }
 
 .section {
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 5rem;
+	padding-right: 5rem;
 }
 
 .page {

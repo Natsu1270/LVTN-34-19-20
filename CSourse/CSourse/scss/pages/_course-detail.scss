@@ -1,0 +1,59 @@
+.section-course-banner {
+	margin-top: 25vh;
+	background: $theme-linear-color;
+	height:40rem;
+	.cs-nav-breadcrumb {
+		&__item-active {
+			background: #e3f9f21f;
+			padding: 0.3rem;
+			}
+		ol {
+			background: none;
+			padding-left: 0;
+			padding-top: 3rem;
+			li {
+				color: white;
+				a {
+					color: white;
+
+				}
+			}
+			.breadcrumb-item + .breadcrumb-item::before {
+				content: '>';
+				color: white;
+			}
+
+		}
+	}
+
+	.course-banner {
+		.course-detail {
+			width: 60%;
+			margin-top: 3rem;
+			.course-title {
+				margin-top: 3rem;
+				color: white;
+			}
+			.course-description {
+				color: white;
+			}
+			.banner-btn {
+				@include banner-btn(white,$theme-font-color);
+				box-shadow: 0 19px 38px rgba(247, 247, 247, 0.1), 0 15px 12px rgba(255, 255, 255, 0.09);
+				height: 90px;
+			}
+			.course-info {
+				line-height: 1.5;
+			}
+			margin-right: 40px;
+		}
+
+		.course-avatar {
+			width: 30%;
+			img {
+				width: 100%;
+			}
+			margin-bottom: 40px;
+		}
+	}
+}

@@ -5,17 +5,19 @@
 	top: 0;
 	z-index: 1000;
 	height: 12rem;
-	transition: background 800ms ease;
+	transition: background 800ms ease, box-shadow 500ms ease;
 	font-size: 1.5rem;
 	.header-content {
 		.cs-navbar {
 			justify-content: flex-start;
+			padding: 0.5rem 5rem;
 			.cs-navbar-item {
 				display: flex;
 				align-items: center;
 				flex-grow: 1;
 				.header-item {
 					a {
+						text-decoration: none;
 						font-weight: bold;
 					}
 				}
@@ -73,7 +75,8 @@
 		background: #ffffff;
 		z-index: 1000;
 		transform: translateY(7rem);
-		transition: transform 500ms ease, background 500ms ease;
+		transition: transform 500ms ease, background 500ms ease, box-shadow 500ms ease;
+		box-shadow: $button-box-shadow;
 
 		.header-content {
 			.cs-navbar {

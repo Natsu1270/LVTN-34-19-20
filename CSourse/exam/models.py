@@ -20,7 +20,7 @@ class Question(models.Model):
     examAsset = models.ForeignKey(Exam, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.content + "-" + self.title
 
 
 class QuestionChoice(models.Model):

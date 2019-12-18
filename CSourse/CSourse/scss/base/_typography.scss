@@ -8,12 +8,25 @@ body {
 }
 
 .text {
-
 	&--info {
 		font-size: $info-font-size;
 		font-weight: 500;
 	}
 	&--sub {
 		font-size: 1.2rem;
+		&__bigger {
+		font-size: 1.6rem;
+	}
+	}
+
+
+
+	&--main {
+		font-size: 3rem;
+		font-weight: 700;
+		color: $theme-green-color;
+		&__bigger {
+			font-size: 3.5rem;
+		}
 	}
 }

@@ -6,23 +6,23 @@
   <section class="section section-course-banner" id="cs-course-banner">
     <nav aria-label="breadcrumb" class="cs-nav-breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Library</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ course.name }}</li>
+        <li class="breadcrumb-item text--sub"><a href="#">Home</a></li>
+        <li class="breadcrumb-item text--sub"><a href="#">Library</a></li>
+        <li class="breadcrumb-item  text--sub" aria-current="page"><span class="text--sub cs-nav-breadcrumb__item-active">{{ course.name }}</span></li>
       </ol>
     </nav>
     <div class="course-banner d-flex justify-content-start">
       <div class="course-detail">
-        <h1 class="course-title">{{ course.name }}</h1>
-        <p class="course-description mt-2">Kickstart your Career in Data Science & ML. Master data science, learn Python & SQL, analyze & visualize data, build machine learning models</p>
+        <h1 class="text--main text--main__bigger text-white">{{ course.name }}</h1>
+        <p class="course-description text--sub text--sub__bigger mt-4">Kickstart your Career in Data Science & ML. Master data science, learn Python & SQL, analyze & visualize data, build machine learning models</p>
         <div class="d-flex enroll-area mt-5">
-          <button class="banner-btn btn mr-3">
+          <button class="banner-btn btn mr-4">
             Đăng ký học 
           </button>
           <div class="course-info">
-            <p class="text-white">Khoá học bắt đầu vào : {{ course.pretty_date }}</p>
-            <p class="text-white">Giảng viên : {{ course.trainer.profile.fullname }}</p>
-            <p class="text-white">Điểm đánh giá: {{ course.rate_score }} / 5</p>
+            <p class="text-white text--sub">Khoá học bắt đầu vào : {{ course.pretty_date }}</p>
+            <p class="text-white text--sub">Giảng viên : {{ course.trainer.profile.fullname }}</p>
+            <p class="text-white text--sub">Điểm đánh giá: {{ course.rate_score }} / 5</p>
           </div>
         </div>
       </div>
