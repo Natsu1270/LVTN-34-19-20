@@ -65,6 +65,15 @@ h1 {
 		}
 
 	}
+
+	.courses-not-found {
+		.des-img {
+			text-align: center;
+			&__not-found-data {
+				width: 80%;
+			}
+		}
+	}
 }
 
 
