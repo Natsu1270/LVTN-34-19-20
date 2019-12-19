@@ -15,11 +15,6 @@ $(document).ready(() => {
 			})
 		}
 	}
-
-	function rateScoreShow() {
-
-	}
-
 	fixedHeader();
 });
 

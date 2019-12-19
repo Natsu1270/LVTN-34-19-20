@@ -29,14 +29,15 @@
     {% include "common/header.html" %}
   
     {% block content %}{% endblock %}
-    
+  
     {% block footer %}
-      
     {% include "common/footer.html" %}
     {% endblock %}
+  
+{#    {% block modal %}#}
+{#    {% include "common/modal.html" %}#}
+{#    {% endblock %}#}
   </div>
-
   <script src="{% static 'dist/bundle.js' %}"></script>
-
 </body>
 </html>

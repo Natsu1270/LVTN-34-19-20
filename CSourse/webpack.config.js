@@ -1,17 +1,23 @@
 const path = require('path');
+const webpack = require('webpack');
+const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
-    entry: {
+	context: __dirname,
+	entry: {
         app: './CSourse/static/js/main.js'
     },
     mode: 'development',
     watch: true,
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'CSourse/static/dist')
+        path: path.resolve(__dirname, 'CSourse/static/dist'),
+		filename: '[name]-[hash].js',
     },
 	devtool: "source-map",
-    module: {
+	plugins: [
+		new BundleTracker({filename: './CSourse/wepack-stats.json'})
+	],
+	module: {
         rules: [
             {
                 test: /\.js$/,

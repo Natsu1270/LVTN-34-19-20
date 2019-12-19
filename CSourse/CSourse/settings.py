@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
+    'bootstrap_modal_forms',
+    'widget_tweaks',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -139,7 +142,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_PACKAGE, 'static')
+    os.path.join(PROJECT_PACKAGE, 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -147,3 +150,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(PROJECT_PACKAGE, 'media')
+
+
+# Webpack
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'dist/',
+        'STATS_FILE': os.path.join(PROJECT_PACKAGE, 'wepack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
+    }
+}
