@@ -76,9 +76,8 @@
 		z-index: 1000;
 		transform: translateY(7rem);
 		transition: transform 500ms ease, background 500ms ease, box-shadow 500ms ease;
-		box-shadow: $button-box-shadow;
-
-		.header-content {
+		box-shadow: 0 1rem 3rem rgba($theme-font-color, 0.15);
+ 		.header-content {
 			.cs-navbar {
 				.cs-navbar-item {
 					.navbar-nav {

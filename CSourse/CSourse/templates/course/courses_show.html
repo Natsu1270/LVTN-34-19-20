@@ -67,43 +67,54 @@
       <div class="courses-area d-flex justify-content-start">
       {% for course in courses %}
         <div class="course-item">
+          <input type="checkbox" id="course-card{{ course.id }}" class="more" aria-hidden="true">
           <div class="course-card">
-            <div class="card-avatar img-thumbnail">
+            <div class="course-card--side course-card--side__front">
+              <div class="card-avatar img-thumbnail">
               <img src="{{ course.avatar.url }}" alt="">
             </div>
-            <div class="card-body">
-              <div class="card-title" onclick="window.location.href = '{% url 'course_detail' course.code %}';">
-                <a href="{% url 'course_detail' course.code %}" class="text--sub__bigger">{{ course.name }}</a>
-              </div>
-              <hr>
-              <p class="text--sub
-                      {% if course.level == 'bg' %}
-                        text-success
-                      {% endif %}
-                      {% if course.level == 'im' %}
-                        text-primary
-                      {% endif %}          
-                      {% if course.level == 'ad' %}
-                        text-danger
-                      {% endif %}
-                      {% if course.level == 'mx' %}
-                        text-warning
-                      {% endif %}    
-              ">{{ course.get_level_display }}</p>
-              <div class="row course-rating-score">
-                <div class="col-lg-12">
-                  <div class="star-rating">
-                      <i class="{% if course.rate_score >= 0.5 %} fas {% else %} fal {% endif %}  fa-star star-rating__star" data-rating="1"></i>
-                      <i class="{% if course.rate_score >= 1.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="2"></i>
-                      <i class="{% if course.rate_score >= 2.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="3"></i>
-                      <i class="{% if course.rate_score >= 3.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="4"></i>
-                      <i class="{% if course.rate_score >= 4.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="5"></i>
-                      <input type="hidden" name="whatever1" id="rate-score-{{ course.id }}" class="star-rating__value" value="{{ course.rate_score }}">
-                      ( {{ course.rate_score }} )
+              <div class="card-body">
+                <div class="card-title" onclick="window.location.href = '{% url 'course_detail' course.code %}';">
+                  <a href="{% url 'course_detail' course.code %}" class="text--sub__bigger">{{ course.name }}</a>
+                </div>
+                <hr>
+                <p class="text--sub
+                        {% if course.level == 'bg' %}
+                          text-success
+                        {% endif %}
+                        {% if course.level == 'im' %}
+                          text-primary
+                        {% endif %}          
+                        {% if course.level == 'ad' %}
+                          text-danger
+                        {% endif %}
+                        {% if course.level == 'mx' %}
+                          text-warning
+                        {% endif %}    
+                ">{{ course.get_level_display }}</p>
+                <div class="row course-rating-score">
+                  <div class="col-lg-12">
+                    <div class="star-rating">
+                        <i class="{% if course.rate_score >= 0.5 %} fas {% else %} fal {% endif %}  fa-star star-rating__star" data-rating="1"></i>
+                        <i class="{% if course.rate_score >= 1.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="2"></i>
+                        <i class="{% if course.rate_score >= 2.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="3"></i>
+                        <i class="{% if course.rate_score >= 3.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="4"></i>
+                        <i class="{% if course.rate_score >= 4.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="5"></i>
+                        <input type="hidden" name="whatever1" id="rate-score-{{ course.id }}" class="star-rating__value" value="{{ course.rate_score }}">
+                        ( {{ course.rate_score }} ) ( {{ course.rate_num  }})
+                      </div>
                     </div>
-                  </div>
-              </div>
+                </div>
+                <label for="course-card{{ course.id }}" class="btn btn-flip btn-flip--detail">More &rarr;</label>
             </div>
+            </div>
+            <div class="course-card--side course-card--side__back">
+              <h1 class="text--main"> {{ course.name }}</h1>
+              <hr>
+              <p class="text--sub">{{ course.short_description }}</p>
+              <label for="course-card{{ course.id }}" class="btn btn-flip btn-flip--return"><i class="fas fa-arrow-left"></i></label>
+            </div>
+            
           </div>
         </div>
       {% endfor %}

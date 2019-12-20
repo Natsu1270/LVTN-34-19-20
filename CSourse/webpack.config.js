@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const BundleTracker = require('webpack-bundle-tracker');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
 	context: __dirname,
@@ -15,7 +16,8 @@ module.exports = {
     },
 	devtool: "source-map",
 	plugins: [
-		new BundleTracker({filename: './CSourse/wepack-stats.json'})
+		new BundleTracker({filename: './CSourse/wepack-stats.json'}),
+		new CleanWebpackPlugin(),
 	],
 	module: {
         rules: [

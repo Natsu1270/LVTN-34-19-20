@@ -1,4 +1,5 @@
 {% load static %}
+{% load render_bundle from webpack_loader %}
 <!doctype html>
 <html lang="{% block html_lang_code %}end{% endblock %}">
 <head>
@@ -23,7 +24,7 @@
   <link rel="stylesheet" href="{% static 'css/all.css' %}">
 
 </head>
-<body>
+<body class="preload-transitions">
   
   <div class="page">
     {% include "common/header.html" %}
@@ -38,6 +39,12 @@
 {#    {% include "common/modal.html" %}#}
 {#    {% endblock %}#}
   </div>
-  <script src="{% static 'dist/bundle.js' %}"></script>
+  {% render_bundle 'app' %}
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function(){
+      let node = document.querySelector('.preload-transitions');
+      node.classList.remove('preload-transitions');
+    });
+  </script>
 </body>
 </html>
