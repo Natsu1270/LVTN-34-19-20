@@ -5,6 +5,7 @@
 		right: 0;
 		top: 100px;
 		z-index: -1;
+		animation: floating 6s 2s ease-in-out infinite;
 	}
 	margin: 0 auto;
 	position: relative;
@@ -39,7 +40,14 @@
 
 				}
 			}
-
+			.cs-btn--banner {
+				&,
+				&:link,
+				&:visited {
+					margin-top: 5rem;
+					margin-left: 30%;
+				}
+			}
 
 		}
 

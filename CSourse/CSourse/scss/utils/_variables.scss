@@ -5,6 +5,7 @@ $theme-font-color-light:				#7F79F1 !default;
 $dark-blue-color: 						#242f6c !default;
 $theme-green-color:						#00c6d1 !default;
 $theme-green-color2:					#20c997 !default;
+$theme-green-dark:						#1F8354 !default;
 $theme-linear-color:					linear-gradient(90deg, rgba(86,55,242,1) 0%, rgba(127,121,241,1) 100%) !default;
 $reverse-theme-linear-color:			linear-gradient(90deg, rgba(127,121,241,1) 0%,rgba(86,55,242,1) 100%) !default;
 $main-blur-color:						#7569f21f !default;
@@ -12,5 +13,9 @@ $info-font-size:						1.3rem !default;
 $button-box-shadow:						0 12px 38px rgba(51, 0, 253, 0.29), 0 12px 12px rgba(52, 58, 251, 0.16) !default;
 $button-click-box-shadow:				0 12px 38px rgba(51, 0, 253, 0.5), 0 12px 12px rgba(52, 58, 251, 0.3) !default;
 $star-rating-color:						#f6ba42 !default;
-$button-box-shadow2:					0 1rem 2rem rgba(0, 0, 0, .2) !default;
+$button-box-shadow2:					0 1rem 2rem rgba($theme-font-color, .2) !default;
 $button-click-box-shadow2:				0 .5rem 1rem rgba(0, 0, 0, .4) !default;
+$default-font-size:						1.6rem !default;
+$shadow-dark: 							0 2rem 6rem rgba(0,0,0,.3);
+$shadow-light: 							0 2rem 5rem rgba(0,0,0,.06);
+

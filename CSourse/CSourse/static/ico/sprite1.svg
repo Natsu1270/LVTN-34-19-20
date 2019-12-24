@@ -1,0 +1,20 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-airplay" viewBox="0 0 24 24">
+<title>airplay</title>
+<path d="M21 3q0.797 0 1.406 0.609t0.609 1.406v12q0 0.797-0.609 1.383t-1.406 0.586h-3.984v-1.969h3.984v-12h-18v12h3.984v1.969h-3.984q-0.797 0-1.406-0.586t-0.609-1.383v-12q0-0.797 0.609-1.406t1.406-0.609h18zM6 21.984l6-6 6 6h-12z"></path>
+</symbol>
+<symbol id="icon-send" viewBox="0 0 24 24">
+<title>send</title>
+<path d="M2.016 21v-6.984l15-2.016-15-2.016v-6.984l21 9z"></path>
+</symbol>
+<symbol id="icon-check" viewBox="0 0 24 24">
+<title>check</title>
+<path d="M9 16.172l10.594-10.594 1.406 1.406-12 12-5.578-5.578 1.406-1.406z"></path>
+</symbol>
+<symbol id="icon-done_all" viewBox="0 0 24 24">
+<title>done_all</title>
+<path d="M0.422 13.406l1.406-1.406 5.578 5.578-1.406 1.406zM22.219 5.578l1.453 1.406-12 12-5.625-5.578 1.453-1.406 4.172 4.172zM18 6.984l-6.328 6.375-1.406-1.406 6.328-6.375z"></path>
+</symbol>
+</defs>
+</svg>

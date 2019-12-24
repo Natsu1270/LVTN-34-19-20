@@ -48,15 +48,60 @@
 	transform: translate(-50%, -50%);
 }
 
-@mixin banner-btn($background-color, $text-color) {
-	border-radius: 5px;
-	background: $background-color;
-	width: 20rem;
-	height: 8rem;
-	box-shadow:$button-box-shadow;
-	color: $text-color;
-	font-weight: 700;
-	outline: none;
-	transition: background 500ms ease,color 500ms ease, box-shadow 500ms ease;
-	font-size: 20px;
+/* Key frame */
+@keyframes moveRightMainSlogan {
+
+	0% {
+		transform: translateX(-25rem);
+		opacity: 0;
+	}
+
+	80% {
+		transform: translateX(1rem);
+		opacity: .8;
+	}
+
+	100% {
+		transform: initial;
+		opacity: 1;
+	}
+
+}
+
+@keyframes moveUp {
+	0% {
+		transform: translateY(5rem);
+		opacity: 0;
+	}
+
+	80% {
+		transform: translateY(-1rem);
+		opacity: 0.8;
+		box-shadow: none;
+	}
+
+	100% {
+		transform: initial;
+		opacity: 1;
+	}
+}
+
+@keyframes floating {
+	0% {
+		transform: translateY(0rem)  ;
+	}
+	50% {
+		transform: translateY(-2rem) ;
+	}
+	100% {
+		transform:translateY(0rem) ;
+	}
+}
+
+@keyframes moveLeft {
+	0% { transform: translateX(50rem)}
+
+	80% { transform: translateX(-5rem)}
+
+	100% { transform: initial}
 }

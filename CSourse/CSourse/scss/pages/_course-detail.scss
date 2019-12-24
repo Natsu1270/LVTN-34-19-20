@@ -1,5 +1,5 @@
 .section-course-banner {
-	margin-top: 25vh;
+	margin-top: 18vh;
 	background: $theme-linear-color;
 	height:40rem;
 	.cs-nav-breadcrumb {
@@ -26,6 +26,13 @@
 		}
 	}
 
+	.cs-btn {
+		&,
+		&:link,
+		&:visited {
+			margin-right: 1rem;
+		}
+	}
 	.course-banner {
 		.course-detail {
 			width: 60%;
@@ -36,11 +43,6 @@
 			}
 			.course-description {
 				color: white;
-			}
-			.banner-btn {
-				@include banner-btn(white,$theme-font-color);
-				box-shadow: 0 19px 38px rgba(247, 247, 247, 0.1), 0 15px 12px rgba(255, 255, 255, 0.09);
-				height: 90px;
 			}
 			.course-info {
 				line-height: 1.5;
@@ -56,4 +58,153 @@
 			margin-bottom: 40px;
 		}
 	}
+}
+
+.section-course-tab {
+	background-color: #ffffff;
+	border-bottom: 1px solid lightgrey;
+	height: 7rem;
+	.course-tab {
+		list-style: none;
+		margin-bottom: 0;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		height: 100%;
+		&__address {
+			//border-bottom: 3px solid $theme-green-color;
+			margin-right: 5rem;
+			align-self: stretch;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+			backface-visibility: hidden;
+			&--link {
+				text-decoration: none;
+				font-size: 1.4rem;
+				color: #2b2b2b;
+				z-index: 10;
+			}
+		}
+
+		&__address::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 5px;
+			width: 100%;
+			background-color: $theme-font-color;
+			transform: scaleX(0);
+			transition: transform .2s;
+			backface-visibility: hidden;
+		}
+		&__address:hover::after, &__address--active::after {
+			transform: scaleX(1);
+		}
+
+		&__btn {
+			flex: 0 0 45.5%;
+			display: flex;
+			justify-content: end;
+		}
+	}
+}
+
+
+.section-course-overview {
+	margin-top: 5rem;
+	&__content {
+		display: grid;
+		grid-template-areas:
+			"header . ."
+			"description description right"
+			"detail detail right"
+			"detail detail right"
+			"skill skill right"
+			;
+		& > * {
+			margin-bottom: 5rem;
+		}
+	}
+
+	&__header {
+		grid-area: header;
+		margin-bottom: 3rem;
+	}
+
+	&__description {
+		grid-area: description;
+		width: 65%;
+		text-align: justify;
+	}
+
+	&__right {
+		grid-area: right;
+		background-color: #ffffff;
+		width: 35%;
+		box-shadow: $shadow-light;
+		padding: 3rem 2rem;
+	}
+
+	&__detail {
+		grid-area: detail;
+		background-color: #ffffff;
+		width: 65%;
+		box-shadow: $shadow-light;
+		padding: 3rem 2rem;
+
+		&-items {
+			padding: 2rem 3rem;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+			grid-column-gap: 3rem;
+			grid-row-gap: 2rem;
+		}
+
+		&-item {
+			display: flex;
+			justify-content: start;
+		}
+
+		&-ico {
+			svg {
+				fill: $theme-green-dark;
+			}
+			margin-right: 1rem;
+		}
+
+		&-text {
+			font-size: 1.2rem;
+		}
+	}
+
+	&__skill {
+		grid-area: skill;
+		background-color: #ffffff;
+		width: 65%;
+		box-shadow: $shadow-light;
+		padding: 3rem 2rem;
+
+		&--sets {
+			padding: 2rem 3rem;
+			list-style: none;
+			display: flex;
+			justify-content: start;
+			flex-wrap: wrap;
+		}
+		&--item {
+			padding: .4rem 1.25rem;
+			margin-right: 2rem;
+			font-size: 1.2rem;
+			border: 1px solid rgba($theme-green-dark, 0.5);
+			border-radius: 5rem;
+		}
+	}
+}
+
+
+.section-course-components {
+
 }

@@ -45,10 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
-    'bootstrap_modal_forms',
     'widget_tweaks',
     'webpack_loader',
-    'livereload',
+    'svg',
 ]
 
 MIDDLEWARE = [
@@ -163,3 +162,7 @@ WEBPACK_LOADER = {
         'IGNORE': [r'.+\.hot-update.js', r'.+\.map']
     }
 }
+
+SVG_DIRS = [
+    os.path.join(PROJECT_PACKAGE, 'static/ico/svg')
+]

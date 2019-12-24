@@ -4,7 +4,6 @@
 	width: 100%;
 	top: 0;
 	z-index: 1000;
-	height: 12rem;
 	transition: background 800ms ease, box-shadow 500ms ease;
 	font-size: 1.5rem;
 	.header-content {
@@ -25,6 +24,10 @@
 
 			.cs-logo {
 				margin-right: 10rem;
+				&__img {
+					height: 8rem;
+					width: 8rem;
+				}
 			}
 
 			ul {

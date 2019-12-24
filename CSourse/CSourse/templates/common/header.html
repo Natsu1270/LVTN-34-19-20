@@ -3,7 +3,7 @@
     <div class="header-content">
       <nav class="navbar navbar-extend-lg cs-navbar">
         <a href="{% url 'homepage' %}" class="navbar-brand cs-logo">
-          <img src="{% static 'img/temp-logo.png' %}" alt="cs-logo">
+          <img src="{% static 'img/temp-logo.png' %}" class="cs-logo__img" alt="cs-logo">
         </a>
         <div class="navbar_supported cs-navbar-item">
           <ul class="navbar-nav">
@@ -25,15 +25,15 @@
                 <li class="nav-item active-nav cs-action-btn" id="logout-btn">
                     <form method="post" action="">
                         {% csrf_token %}
-                        <input type="submit" class="btn btn--cs-action btn--animated nav-link" id="logout-input" value="Logout"/>
+                        <input type="submit" class="btn cs-btn cs-btn--animated cs-btn--fixed nav-link" id="logout-input" value="Logout"/>
                     </form>
                 </li>
             {% else %}
-                <li class="nav-item active-nav btn--cs-action btn--animated cs-action-btn" id="signup-btn">
-                  <a class="nav-link" href="">Sign up</a>
+                <li class="nav-item active-nav " id="signup-btn">
+                  <a class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="">Sign up</a>
                 </li>
-                <li class="nav-item active-nav btn--cs-action btn--animated cs-action-btn">
-                  <a class="nav-link" href="">Log in</a>
+                <li class="nav-item active-nav">
+                  <a class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="">Log in</a>
                 </li>
             {% endif %}
           </ul>
