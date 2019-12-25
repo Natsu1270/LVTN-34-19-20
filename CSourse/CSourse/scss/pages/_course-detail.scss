@@ -117,6 +117,7 @@
 	margin-top: 5rem;
 	&__content {
 		display: grid;
+		grid-template-columns: 1fr 1fr 30rem;
 		grid-template-areas:
 			"header . ."
 			"description description right"
@@ -124,34 +125,69 @@
 			"detail detail right"
 			"skill skill right"
 			;
-		& > * {
-			margin-bottom: 5rem;
+		grid-gap: 3rem;
+
+		@include responsive(tab-port) {
+			grid-template-areas:
+			"header . ."
+			"right right right"
+			"description description description"
+			"detail detail detail"
+			"detail detail detail"
+			"skill skill skill"
+			;
 		}
 	}
 
 	&__header {
 		grid-area: header;
-		margin-bottom: 3rem;
+		margin-bottom: 1rem;
 	}
 
 	&__description {
 		grid-area: description;
-		width: 65%;
 		text-align: justify;
 	}
 
 	&__right {
 		grid-area: right;
 		background-color: #ffffff;
-		width: 35%;
 		box-shadow: $shadow-light;
 		padding: 3rem 2rem;
+
+		&--item:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		&--item {
+			display: flex;
+			align-items: center;
+			&__ico {
+				margin-right: 2rem;
+				width: 4rem;
+				height: 4rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: 2px solid lightgrey;
+				border-radius: 50%;
+				svg {
+					height: 2rem;
+					width: 2rem;
+					fill: $theme-font-color;
+				}
+			}
+			&__text {
+				font-size: 1.6rem;
+				font-weight: 500;
+			}
+		}
+
 	}
 
 	&__detail {
 		grid-area: detail;
 		background-color: #ffffff;
-		width: 65%;
 		box-shadow: $shadow-light;
 		padding: 3rem 2rem;
 
@@ -183,7 +219,6 @@
 	&__skill {
 		grid-area: skill;
 		background-color: #ffffff;
-		width: 65%;
 		box-shadow: $shadow-light;
 		padding: 3rem 2rem;
 
@@ -200,11 +235,71 @@
 			font-size: 1.2rem;
 			border: 1px solid rgba($theme-green-dark, 0.5);
 			border-radius: 5rem;
+			cursor: pointer;
+			&:hover	{
+				background-color: #20c997;
+				color: #ffffff;
+				border: 1px solid #20c997;
+			}
 		}
 	}
 }
 
 
 .section-course-components {
+	margin-top: 5rem;
+	&__header {
+		margin-bottom: 5rem;
+	}
+	&__tabs {
+		input[name="tab-control"] {
+    		display: none;
+  		}
+		&--indexes {
+			list-style-type: none;
+			margin-right: 5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			background-color: $theme-green-color;
+			padding: 1rem 2rem;
+		}
 
+		&--index {
+			cursor: pointer;
+		}
+
+		&--label {
+			cursor: pointer;
+			span {
+				color: #ffffff;
+				font-size: 1.6rem;
+			}
+		}
+
+		&--content {
+			section {
+				display: none;
+				animation: {
+					name: tabContent;
+					direction: normal;
+					duration: 0.3s;
+					timing-function: ease-in-out;
+					iteration-count: 1;
+				  }
+			}
+		}
+
+		input[name="tab-control"] {
+			@include tabs
+		}
+	}
+}
+
+
+.section-course-tutors {
+	margin-top: 5rem;
+	&__header {
+		margin-bottom: 5rem;
+	}
 }
