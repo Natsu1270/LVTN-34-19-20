@@ -105,9 +105,9 @@
 		}
 
 		&__btn {
-			flex: 0 0 45.5%;
+			flex: 0 0 37.5%;
 			display: flex;
-			justify-content: end;
+			justify-content: flex-end;
 		}
 	}
 }
@@ -115,43 +115,33 @@
 
 .section-course-overview {
 	margin-top: 5rem;
+	margin-bottom: 5rem;
 	&__content {
 		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(20rem, 30rem));
+		grid-column-gap: 3rem;
+		grid-row-gap: 3rem;
 		grid-template-areas:
 			"header . ."
 			"description description right"
 			"detail detail right"
-			"detail detail right"
 			"skill skill right"
 			;
-		& > * {
-			margin-bottom: 5rem;
-		}
+
 	}
 
 	&__header {
 		grid-area: header;
-		margin-bottom: 3rem;
 	}
 
 	&__description {
 		grid-area: description;
-		width: 65%;
 		text-align: justify;
-	}
-
-	&__right {
-		grid-area: right;
-		background-color: #ffffff;
-		width: 35%;
-		box-shadow: $shadow-light;
-		padding: 3rem 2rem;
 	}
 
 	&__detail {
 		grid-area: detail;
 		background-color: #ffffff;
-		width: 65%;
 		box-shadow: $shadow-light;
 		padding: 3rem 2rem;
 
@@ -180,10 +170,16 @@
 		}
 	}
 
+	&__right {
+		grid-area: right;
+		background-color: #ffffff;
+		box-shadow: $shadow-light;
+		padding: 3rem 2rem;
+	}
+
 	&__skill {
 		grid-area: skill;
 		background-color: #ffffff;
-		width: 65%;
 		box-shadow: $shadow-light;
 		padding: 3rem 2rem;
 

@@ -7,4 +7,5 @@ node_modules/
 migrations/
 dist/
 settings.py
+package-lock.json
 media/
