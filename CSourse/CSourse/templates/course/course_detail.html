@@ -48,7 +48,7 @@
   </section>
   
 {#  Overview #}
-  <section class="section-10 section-course-overview" id="cs-course-overview">
+  <section class="mt-10 section-10 section-course-overview" id="cs-course-overview">
     <div class="section-course-overview__content">
         <h2 class="text--main section-course-overview__header" id="cs-course-overview">
           Course overview
@@ -147,18 +147,18 @@
   </section>
   
 {#  Components #}
-  <div class="section section-10 section-course-components" id="cs-course-components">
+  <section class="mt-10 section-10 section-course-components" id="cs-course-components">
     <div class="section-course-components__content">
       <h2 class="text--main section-course-components__header" id="cs-course-overview">
         Components
       </h2>
-      <div class="section-course-components__tabs row ml-0">
+      <div class="section-course-components__tabs">
         
         <input type="radio" id="tab1" name="tab-control">
         <input type="radio" id="tab2" name="tab-control" checked>
         <input type="radio" id="tab3" name="tab-control">  
         
-        <ul class="section-course-components__tabs--indexes col-md-1 col-xl-1">
+        <ul class="section-course-components__tabs--indexes">
           <li class="section-course-components__tabs--index">
             <label for="tab1" class="section-course-components__tabs--label">
               <span>Week 1</span>
@@ -176,12 +176,12 @@
           </li>
         </ul>
         
-        <div class="section-course-components__tabs--slider slider">
-          <div class="indicator">
-          </div>
-        </div>
+{#        <div class="section-course-components__tabs--slider slider">#}
+{#          <div class="indicator">#}
+{#          </div>#}
+{#        </div>#}
         
-        <div class="section-course-components__tabs--content content col-md-8 col-xl-8">
+        <div class="section-course-components__tabs--content content ">
           <section>
             <h2>Chapter One - Why we Program?</h2>
             <span class="text--sub">These are the course-wide materials as well as the first part of Chapter One where we explore what it means to write programs. We finish Chapter One and have the quiz and first assignment in the third week of the class. Throughout the course you may want to come back and look at these materials. This section should not take you an entire week.</span>
@@ -207,14 +207,86 @@
       </div>
       
     </div>
-  </div>
+  </section>
   
 {#  Tutors #}
-  <div class="section-10 section-course-tutors" id="cs-course-tutors">
+  <section class="mt-10 section-10 section-course-tutors" id="cs-course-tutors">
     <h2 class="text--main section-course-tutors__header" id="cs-course-overview">
         Instructors
     </h2>
+    <div class="section-course-tutors--content">
+      <div class="section-course-tutors--content__main">
+        <figure class="section-course-tutors--content__avatar">
+          <img src="{{ course.trainer.profile.avatar.url }}" alt="" class="section-course-tutors--content__img">
+        </figure>
+        <div class="section-course-tutors--content__info">
+          <span class="tutor-name mb-2"><a href="#">{{ course.trainer.profile.fullname }}</a></span>
+          <span class="tutor-email">{{ course.trainer.profile.email }}</span>
+        </div>
+      </div>
+    </div>
   
-  </div>
+  </section>
+  
+  <section class="mt-10 section-10 section-course-review">
+    <h2 class="text--main section-course-review__header" id="cs-course-overview">
+        Reviews
+    </h2>
+    <div class="section-course-review--feedback">
+      <h3 class="text--sub__bigger2 text--sub__600 mb-5">Student feedback</h3>
+      <div class="feedback-rating">
+        <div class="feedback-rating__score">
+          <span class="score-num">{{ course.rate_score }}</span>
+           <div class="star-rating">
+            <i class="{% if course.rate_score >= 0.5 %} fas {% else %} fal {% endif %}  fa-star star-rating__star" data-rating="1"></i>
+            <i class="{% if course.rate_score >= 1.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="2"></i>
+            <i class="{% if course.rate_score >= 2.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="3"></i>
+            <i class="{% if course.rate_score >= 3.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="4"></i>
+            <i class="{% if course.rate_score >= 4.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="5"></i>
+            <input type="hidden" name="whatever1" id="rate-score-{{ course.id }}" class="star-rating__value" value="{{ course.rate_score }}">
+          </div>
+        </div>
+        <div class="feedback-rating__ratio">
+          <div class="feedback-rating__ratio--5">
+            <div class="ratio-base">
+              <span class="ratio-real">
+                
+              </span>
+            </div>
+          </div>
+          <div class="feedback-rating__ratio--5">
+            <div class="ratio-base">
+              <span class="ratio-real">
+                
+              </span>
+            </div>
+          </div>
+          <div class="feedback-rating__ratio--5">
+            <div class="ratio-base">
+              <span class="ratio-real">
+                
+              </span>
+            </div>
+          </div>
+          <div class="feedback-rating__ratio--5">
+            <div class="ratio-base">
+              <span class="ratio-real">
+                
+              </span>
+            </div>
+          </div>
+          <div class="feedback-rating__ratio--5">
+            <div class="ratio-base">
+              <span class="ratio-real">
+                
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+  </section>
   
 {% endblock %}
