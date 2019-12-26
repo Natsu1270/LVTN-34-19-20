@@ -394,6 +394,11 @@
 				.score-num {
 					font-size: 7.2rem;
 				}
+
+				.star-rating__star {
+					font-size: 2rem ;
+				}
+
 			}
 
 			&__ratio {
@@ -421,5 +426,56 @@
 			}
 		}
 
+		.review-items {
+			display: flex;
+			flex-wrap: wrap;
+			.review-item {
+				margin-right: 5rem;
+				width: 28%;
+				border-radius: 0.8rem;
+				padding: 2.5rem 4rem;
+				box-shadow: 0 15px 35px 0 rgba(42,51,83,.12), 0 5px 15px rgba(0,0,0,.06);
+				margin-bottom: 2rem;
+
+				&__content {
+					margin-bottom: 2rem;
+					&--star {
+						margin-bottom: 2rem;
+					}
+					&--text {
+						font-size: 1.4rem;
+					}
+				}
+				&__user {
+					display: flex;
+					align-items: center;
+					&--avatar {
+						height: 5rem;
+						margin-right: 1rem;
+					}
+					&--name {
+						font-size: 1.2rem;
+						font-weight: 500;
+					}
+					&--time {
+						font-style: italic;
+						font-size: 0.9rem;
+						color: darkgray;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+.section-course-related {
+	&__header {
+		margin-bottom: 5rem;
+	}
+	&__content {
+		position: relative;
 	}
 }
+

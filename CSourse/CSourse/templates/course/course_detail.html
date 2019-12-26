@@ -40,8 +40,8 @@
       <li class="course-tab__address course-tab__address--active"><a href="#cs-course-overview" class="course-tab__address--link">Overview</a></li>
       <li class="course-tab__address"><a href="#cs-course-components" class="course-tab__address--link">Components</a></li>
       <li class="course-tab__address"><a href="#cs-course-tutors" class="course-tab__address--link">Instructors</a></li>
-      <li class="course-tab__address"><a href="#review" class="course-tab__address--link">Reviews</a></li>
-      <li class="course-tab__address"><a href="#related-courses" class="course-tab__address--link">Related courses</a></li>
+      <li class="course-tab__address"><a href="#cs-course-review" class="course-tab__address--link">Reviews</a></li>
+      <li class="course-tab__address"><a href="#cs-course-related" class="course-tab__address--link">Related courses</a></li>
       <li class="course-tab__btn"><a href="#" class="cs-btn cs-btn--animated">Đăng ký ngay</a></li>
     </ul>
     
@@ -228,8 +228,8 @@
   
   </section>
   
-  <section class="mt-10 section-10 section-course-review">
-    <h2 class="text--main section-course-review__header" id="cs-course-overview">
+  <section class="mt-10 section-10 section-course-review" id="cs-course-review">
+    <h2 class="text--main section-course-review__header">
         Reviews
     </h2>
     <div class="section-course-review--feedback">
@@ -285,8 +285,174 @@
 
         </div>
       </div>
+      <h3 class="text--sub__bigger2 text--sub__600 mb-5">Student reviews</h3>
+      <div class="review-items">
+        <div class="review-item">
+          <div class="review-item__content">
+            <div class="review-item__content--star">
+              <div class="star-rating">
+                <i class="{% if course.rate_score >= 0.5 %} fas {% else %} fal {% endif %}  fa-star star-rating__star" data-rating="1"></i>
+                <i class="{% if course.rate_score >= 1.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="2"></i>
+                <i class="{% if course.rate_score >= 2.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="3"></i>
+                <i class="{% if course.rate_score >= 3.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="4"></i>
+                <i class="{% if course.rate_score >= 4.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="5"></i>
+                <input type="hidden" name="whatever1" id="rate-score-{{ course.id }}" class="star-rating__value" value="{{ course.rate_score }}">
+              </div>
+            </div>
+            <div class="review-item__content--text">
+              Great course! Simple and concise explanations of the Agile concepts with practical advise and templates. Enought to get started and learn more along the way!
+            </div>
+          </div>
+          <div class="review-item__user">
+            <img src="{% static 'ico/sadface.svg' %}" alt="" class="review-item__user--avatar">
+            <div class="review-item__user--info">
+              <div class="review-item__user--name">
+              Name
+            </div>
+              <div class="review-item__user--email">
+                @lodash123
+              </div>
+              <div class="review-item__user--time">
+                3 week ago
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="review-item">
+          <div class="review-item__content">
+            <div class="review-item__content--star">
+              <div class="star-rating">
+                <i class="{% if course.rate_score >= 0.5 %} fas {% else %} fal {% endif %}  fa-star star-rating__star" data-rating="1"></i>
+                <i class="{% if course.rate_score >= 1.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="2"></i>
+                <i class="{% if course.rate_score >= 2.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="3"></i>
+                <i class="{% if course.rate_score >= 3.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="4"></i>
+                <i class="{% if course.rate_score >= 4.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="5"></i>
+                <input type="hidden" name="whatever1" id="rate-score-{{ course.id }}" class="star-rating__value" value="{{ course.rate_score }}">
+              </div>
+            </div>
+            <div class="review-item__content--text">
+              Great course! Simple and concise explanations of the Agile concepts with practical advise and templates. Enought to get started and learn more along the way!
+            </div>
+          </div>
+          <div class="review-item__user">
+            <img src="{% static 'ico/glassface.svg' %}" alt="" class="review-item__user--avatar">
+            <div class="review-item__user--info">
+              <div class="review-item__user--name">
+              Name
+            </div>
+              <div class="review-item__user--email">
+                @titan123
+              </div>
+              <div class="review-item__user--time">
+                3 week ago
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="review-item">
+          <div class="review-item__content">
+            <div class="review-item__content--star">
+              <div class="star-rating">
+                <i class="{% if course.rate_score >= 0.5 %} fas {% else %} fal {% endif %}  fa-star star-rating__star" data-rating="1"></i>
+                <i class="{% if course.rate_score >= 1.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="2"></i>
+                <i class="{% if course.rate_score >= 2.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="3"></i>
+                <i class="{% if course.rate_score >= 3.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="4"></i>
+                <i class="{% if course.rate_score >= 4.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="5"></i>
+                <input type="hidden" name="whatever1" id="rate-score-{{ course.id }}" class="star-rating__value" value="{{ course.rate_score }}">
+              </div>
+            </div>
+            <div class="review-item__content--text">
+              Great course! Simple and concise explanations of the Agile concepts with practical advise and templates. Enought to get started and learn more along the way!
+            </div>
+          </div>
+          <div class="review-item__user">
+            <img src="{% static 'ico/angelface.svg' %}" alt="" class="review-item__user--avatar">
+            <div class="review-item__user--info">
+              <div class="review-item__user--name">
+              Name
+            </div>
+              <div class="review-item__user--email">
+                @zanta
+              </div>
+              <div class="review-item__user--time">
+                3 week ago
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="review-item">
+          <div class="review-item__content">
+            <div class="review-item__content--star">
+              <div class="star-rating">
+                <i class="{% if course.rate_score >= 0.5 %} fas {% else %} fal {% endif %}  fa-star star-rating__star" data-rating="1"></i>
+                <i class="{% if course.rate_score >= 1.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="2"></i>
+                <i class="{% if course.rate_score >= 2.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="3"></i>
+                <i class="{% if course.rate_score >= 3.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="4"></i>
+                <i class="{% if course.rate_score >= 4.5 %} fas {% else %} fal {% endif %} fa-star star-rating__star" data-rating="5"></i>
+                <input type="hidden" name="whatever1" id="rate-score-{{ course.id }}" class="star-rating__value" value="{{ course.rate_score }}">
+              </div>
+            </div>
+            <div class="review-item__content--text">
+              Great course! Simple and concise explanations of the Agile concepts with practical advise and templates. Enought to get started and learn more along the way!
+            </div>
+          </div>
+          <div class="review-item__user">
+            <img src="{% static 'ico/speechlessface.svg' %}" alt="" class="review-item__user--avatar">
+            <div class="review-item__user--info">
+              <div class="review-item__user--name">
+              Name
+            </div>
+              <div class="review-item__user--email">
+                @lodash123
+              </div>
+              <div class="review-item__user--time">
+                3 week ago
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   
+  </section>
+  
+  <section class="mt-10 section-10 section-course-related" id="cs-course-related">
+    <h2 class="text--main section-course-related__header">
+        Courses you may like!
+    </h2>
+    
+    <div class="section-course-related__content">
+      <div class="owl-carousel owl-theme">
+       {% for relate in courses %}
+          <div class="course-card-small">
+            <div class="course-card-small__avatar">
+                <img src="{{ relate.avatar.url }}" alt="">
+              </div>
+              <div class="course-card-small__body">
+                <div class="card-title" onclick="window.location.href = '{% url 'course_detail' relate.code %}';">
+                  <a href="{% url 'course_detail' relate.code %}" class="text--sub__bigger">{{ relate.name }}</a>
+                </div>
+                <p class="text--sub
+                        {% if relate.level == 'bg' %}
+                          text-success
+                        {% endif %}
+                        {% if relate.level == 'im' %}
+                          text-primary
+                        {% endif %}          
+                        {% if relate.level == 'ad' %}
+                          text-danger
+                        {% endif %}
+                        {% if relate.level == 'mx' %}
+                          text-warning
+                        {% endif %}    
+                ">{{ relate.get_level_display }}</p>
+            </div>
+          </div>
+       {% endfor %} 
+      </div>
+    </div>
+    
   </section>
   
 {% endblock %}

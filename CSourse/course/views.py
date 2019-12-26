@@ -18,5 +18,7 @@ def courses(request):
 def course_detail(request, course_code):
     context = dict()
     course = get_object_or_404(Course, code=course_code)
+    relates = Course.objects.order_by('rate_score').all()
     context['course'] = course
+    context['courses'] = relates
     return render(request, 'course/course_detail.html', context)

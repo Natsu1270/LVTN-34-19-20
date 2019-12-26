@@ -18,6 +18,11 @@ module.exports = {
 	plugins: [
 		new BundleTracker({filename: './CSourse/wepack-stats.json'}),
 		new CleanWebpackPlugin(),
+		new webpack.ProvidePlugin({
+		  $: 'jquery',
+		  jQuery: 'jquery',
+		  'window.jQuery': 'jquery'
+		}),
 	],
 	module: {
         rules: [
@@ -26,6 +31,10 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
+			{
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader'],
+		  	},
 			{
 				test: /\.scss$/,
 				use: ['style-loader', 'css-loader?url=false', 'sass-loader']

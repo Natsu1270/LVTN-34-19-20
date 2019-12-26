@@ -71,8 +71,8 @@
           <div class="course-card">
             <div class="course-card--side course-card--side__front">
               <div class="card-avatar img-thumbnail">
-              <img src="{{ course.avatar.url }}" alt="">
-            </div>
+                <img src="{{ course.avatar.url }}" alt="">
+              </div>
               <div class="card-body">
                 <div class="card-title" onclick="window.location.href = '{% url 'course_detail' course.code %}';">
                   <a href="{% url 'course_detail' course.code %}" class="text--sub__bigger">{{ course.name }}</a>
