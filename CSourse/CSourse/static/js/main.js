@@ -4,6 +4,57 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "../../scss/output.scss";
 
 $(document).ready(() => {
+	const $tab = $("#cs-course-tab");
+	const $overview = $("#cs-course-overview");
+	const $components = $("#cs-course-components");
+	const $instructors = $("#cs-course-tutors");
+	const $reviews = $("#cs-course-review");
+	const $relates = $("#cs-course-related");
+
+
+
+
+	function resetTabLinked() {
+		$(".course-tab__address--link").each(function (index) {
+			if ($(this).parent().hasClass("course-tab__address--active")) {
+				$(this).parent().removeClass("course-tab__address--active");
+			}
+		});
+	}
+
+	if ($tab.length) {
+		const overviewPos = $overview.offset().top;
+		const componentsPos = $components.offset().top;
+		const instructorsPos = $instructors.offset().top;
+		const reviewsPos = $reviews.offset().top;
+		const relatesPos = $relates.offset().top;
+		$(window).on('scroll', function () {
+			let scroll = $(window).scrollTop();
+			if (scroll >= overviewPos - 200) {
+				resetTabLinked();
+				$("#tab-overview").addClass("course-tab__address--active");
+			} else {
+				resetTabLinked();
+			}
+			if (scroll >= componentsPos - 200) {
+				resetTabLinked();
+				$("#tab-components").addClass("course-tab__address--active");
+			}
+			if (scroll >= instructorsPos - 200) {
+				resetTabLinked();
+				$("#tab-tutors").addClass("course-tab__address--active");
+			}
+			if (scroll >= reviewsPos - 200) {
+				resetTabLinked();
+				$("#tab-review").addClass("course-tab__address--active");
+			}
+			if (scroll >= relatesPos - 200) {
+				resetTabLinked();
+				$("#tab-related").addClass("course-tab__address--active");
+			}
+		})
+	}
+
 	// Fixed header
 	function fixedHeader() {
 		if ($('.cs-main-header').length) {
@@ -18,18 +69,21 @@ $(document).ready(() => {
 		}
 	}
 	fixedHeader();
+
 	// Fixed tab
 	function fixedTab() {
-		let $tab = $("#cs-course-tab");
 		if ($tab.length) {
 			let y_post = $tab.offset().top;
 			let height = $tab.height();
 			$(window).on('scroll', () => {
 				let scroll = $(window).scrollTop();
-				if (scroll >= y_post + height) {
-					$tab.addClass('cs-course-tab__fixed');
+				if (scroll >= y_post - height) {
+					$tab.addClass('section-course-tab__fixed');
+					$('#main-header').addClass('cs-header-replaced');
+					$('#main-header').removeClass('cs-header-fixed');
 				} else {
-					$tab.removeClass('cs-course-tab__fixed');
+					$tab.removeClass('section-course-tab__fixed');
+					$('#main-header').removeClass('cs-header-replaced');
 				}
 			})
 		}
@@ -53,6 +107,17 @@ $(document).ready(() => {
 			"<i class='fa fa-caret-right'></i>"
 		],
 	})
+
+	$(".course-tab__address--link").click((e) => {
+		e.preventDefault();
+
+		let target = $(e.target.getAttribute('href'));
+		if (target.length) {
+			e.target.parentElement.classList.add("course-tab__address--active");
+			let scrollTo = target.offset().top - 100;
+			$('body, html').animate({scrollTop: scrollTo + 'px'}, 500,'linear');
+		}
+	});
 
 });
 

@@ -64,6 +64,7 @@
 	background-color: #ffffff;
 	border-bottom: 1px solid lightgrey;
 	height: 7rem;
+	transition: all 0.2s ease;
 	.course-tab {
 		list-style: none;
 		margin-bottom: 0;
@@ -104,11 +105,21 @@
 			transform: scaleX(1);
 		}
 
+
 		&__btn {
 			flex: 0 0 37.5%;
 			display: flex;
 			justify-content: flex-end;
 		}
+	}
+
+	&__fixed {
+		position: fixed;
+		top: -5rem;
+		background: #ffffff;
+		width: 100%;
+		z-index: 1000;
+		transform: translateY(5rem);
 	}
 }
 
