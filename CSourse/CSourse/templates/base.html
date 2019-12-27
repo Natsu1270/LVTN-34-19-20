@@ -34,7 +34,10 @@
     {% block footer %}
     {% include "common/footer.html" %}
     {% endblock %}
-  
+    
+    {% block modal %}
+    {% include "common/modal.html" %}
+    {% endblock %}
 
   </div>
   {% render_bundle 'app' %}

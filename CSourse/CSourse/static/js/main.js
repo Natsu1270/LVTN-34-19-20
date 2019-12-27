@@ -1,6 +1,15 @@
+// Bootstrap JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
+
+// Carousel
 import "owl.carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
+
+// Fancybox modal
+import "@fancyapps/fancybox";
+import "@fancyapps/fancybox/dist/jquery.fancybox.css";
+
+// Main style
 import "../../scss/output.scss";
 
 $(document).ready(() => {
@@ -10,18 +19,20 @@ $(document).ready(() => {
 	const $instructors = $("#cs-course-tutors");
 	const $reviews = $("#cs-course-review");
 	const $relates = $("#cs-course-related");
+	const tabAddressLink = $(".course-tab__address--link");
+	const mainHeader = $('#main-header');
 
 
-
-
+	// Function to remove indicator border of tab link
 	function resetTabLinked() {
-		$(".course-tab__address--link").each(function (index) {
+		tabAddressLink.each(function (index) {
 			if ($(this).parent().hasClass("course-tab__address--active")) {
 				$(this).parent().removeClass("course-tab__address--active");
 			}
 		});
 	}
 
+	// On scroll to tab content -> show indicator border to tab link
 	if ($tab.length) {
 		const overviewPos = $overview.offset().top;
 		const componentsPos = $components.offset().top;
@@ -79,11 +90,11 @@ $(document).ready(() => {
 				let scroll = $(window).scrollTop();
 				if (scroll >= y_post - height) {
 					$tab.addClass('section-course-tab__fixed');
-					$('#main-header').addClass('cs-header-replaced');
-					$('#main-header').removeClass('cs-header-fixed');
+					mainHeader.addClass('cs-header-replaced');
+					mainHeader.removeClass('cs-header-fixed');
 				} else {
 					$tab.removeClass('section-course-tab__fixed');
-					$('#main-header').removeClass('cs-header-replaced');
+					mainHeader.removeClass('cs-header-replaced');
 				}
 			})
 		}
@@ -106,9 +117,9 @@ $(document).ready(() => {
 			"<i class='fa fa-caret-left'></i>",
 			"<i class='fa fa-caret-right'></i>"
 		],
-	})
+	});
 
-	$(".course-tab__address--link").click((e) => {
+	tabAddressLink.click((e) => {
 		e.preventDefault();
 
 		let target = $(e.target.getAttribute('href'));
@@ -119,5 +130,17 @@ $(document).ready(() => {
 		}
 	});
 
+	$('data-fancybox').fancybox({
+	// Options will go here
+	});
+
+	const switchers = [...document.querySelectorAll('.switcher')];
+
+	switchers.forEach(item => {
+		item.addEventListener('click', function() {
+			switchers.forEach(item => item.parentElement.classList.remove('is-active'))
+			this.parentElement.classList.add('is-active')
+		})
+	})
 });
 

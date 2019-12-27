@@ -30,10 +30,10 @@
                 </li>
             {% else %}
                 <li class="nav-item active-nav " id="signup-btn">
-                  <a class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="">Sign up</a>
+                  <a data-fancybox data-type="ajax" data-src="{% url 'accounts:signup' %}" class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="javascript:">Sign up</a>
                 </li>
                 <li class="nav-item active-nav">
-                  <a class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="">Log in</a>
+                  <a data-fancybox data-type="ajax" data-src="#hidden-content" class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="javascript:">Log in</a>
                 </li>
             {% endif %}
           </ul>
