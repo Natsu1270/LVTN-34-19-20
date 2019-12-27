@@ -24,6 +24,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "owl.carousel": "^2.3.4"
