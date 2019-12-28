@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    
+  <section class="section-10 cs-exam-ability">
+    <h2 class="text--main text--main__smaller cs-exam-ability__header">
+          Bài kiểm tra năng lực cho khoá học: <a href="{% url 'course_detail' course.code %}">{{ course.name }}</a>
+    </h2>
+    
+    <span class="text--sub__medium">
+      {% if ability_exams.count > 0 %}
+        There {% if ability_exams.count == 1 %} is {% else %} are {% endif %} {{ ability_exams.count }} ability exam{{ ability_exams.count|pluralize }} for this course!
+      {% else %}
+        Sorry, no exams available right now!
+      {% endif %} 
+    </span>
+    
+    <div class="cs-exam-ability__exams">
+      {% for exam in ability_exams %}
+        
+        <div href="#" class="exam-card">
+          <div class="exam-card__body">
+            <div class="exam-card__title">
+              {{ exam.exam.name }}
+            </div>
+            <hr>
+            <div class="exam-card__content">
+              <div class="text--sub__medium">
+                Type: {{ exam.exam.type }}
+              </div>
+              <div class="text--sub__medium">
+                Max score: {{ exam.exam.max_score }}
+              </div>
+              <div class="text--sub__medium">
+                Number of questions: {{ exam.exam.question_set.count }}
+              </div>
+            </div>
+            <div class="exam-card__button">
+              <a data-fancybox="exam{{ exam.id }}" data-type="ajax" data-src="{% url 'exam:take_exam' exam.exam.id %}" href="#" class="cs-btn cs-btn--animated">
+                Làm
+              </a>
+            </div>
+          </div>
+        </div>
+        
+      {% endfor %}
+    </div>
+  </section>
+  
+  
+  
+{% endblock content %}

@@ -73,7 +73,6 @@
 		align-items: center;
 		height: 100%;
 		&__address {
-			//border-bottom: 3px solid $theme-green-color;
 			margin-right: 5rem;
 			align-self: stretch;
 			display: flex;
@@ -110,6 +109,20 @@
 			flex: 0 0 37.5%;
 			display: flex;
 			justify-content: flex-end;
+			align-items: center;
+			.tab-link {
+				font-size: 1.6rem;
+				&,&:link,&:active {
+					text-decoration: none;
+					margin-left: 1rem;
+					color: $theme-font-color;
+					text-transform: capitalize;
+					font-weight: 600;
+				}
+			}
+			.cs-btn {
+				margin-right: 1rem;
+			}
 		}
 	}
 
@@ -120,6 +133,8 @@
 		width: 100%;
 		z-index: 1000;
 		transform: translateY(5rem);
+		border: none;
+		box-shadow: $button-box-shadow2;
 	}
 }
 

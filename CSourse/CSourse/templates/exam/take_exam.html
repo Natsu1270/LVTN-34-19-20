@@ -1,0 +1,17 @@
+<div class="exam_questions">
+   {% if questions.count < 0 %}
+    <span class="text--info">No questions available for this exam</span>
+   {% else %}
+     
+    <div class="exam_questions__detail">
+      {% for question in questions %}
+      <div class="text--sub text--sub__medium">
+        question {{ forloop.counter }} of {{ questions.count }}
+        {{ question.title }} - {{ question.content }}
+      </div>
+      
+    </div>
+    {% endfor %} 
+  
+   {% endif %}
+</div>

@@ -42,7 +42,11 @@
       <li class="course-tab__address" id="tab-tutors"><a href="#cs-course-tutors" class="course-tab__address--link">Instructors</a></li>
       <li class="course-tab__address" id="tab-review"><a href="#cs-course-review" class="course-tab__address--link">Reviews</a></li>
       <li class="course-tab__address" id="tab-related"><a href="#cs-course-related" class="course-tab__address--link">Related courses</a></li>
-      <li class="course-tab__btn"><a href="#" class="cs-btn cs-btn--animated">Đăng ký ngay</a></li>
+      <li class="course-tab__btn">
+        <a href="#" class="cs-btn cs-btn--animated">Đăng ký ngay</a>
+
+        <a href="{% url 'exam:ability_exam' course.code %}" class="cs-btn cs-btn--animated"> Test năng lực</a>
+      </li>
     </ul>
     
   </section>

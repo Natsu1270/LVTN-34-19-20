@@ -87,18 +87,18 @@ WSGI_APPLICATION = 'CSourse.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
 
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'csourse',
-        # 'USER': 'Natsu',
-        # 'PASSWORD': 'Natsu1270',
-        # 'HOST': 'localhost',
-        # 'PORT': '5432',
-        # 'TEST': {
-        #     'NAME': 'TestDatabase'
-        # }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'csourse',
+        'USER': 'Natsu',
+        'PASSWORD': 'Natsu1270',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'TEST': {
+            'NAME': 'TestDatabase'
+        }
     }
 }
 
@@ -166,3 +166,5 @@ WEBPACK_LOADER = {
 SVG_DIRS = [
     os.path.join(PROJECT_PACKAGE, 'static/ico/svg')
 ]
+
+

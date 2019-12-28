@@ -9,6 +9,11 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "@fancyapps/fancybox";
 import "@fancyapps/fancybox/dist/jquery.fancybox.css";
 
+// Slicky
+import "slick-carousel"
+import "slick-carousel/slick/slick.scss";
+
+
 // Main style
 import "../../scss/output.scss";
 
@@ -21,6 +26,8 @@ $(document).ready(() => {
 	const $relates = $("#cs-course-related");
 	const tabAddressLink = $(".course-tab__address--link");
 	const mainHeader = $('#main-header');
+	const loginBtn = $("#login-btn");
+	const signupBtn = $("#signup-btn");
 
 
 	// Function to remove indicator border of tab link
@@ -121,17 +128,12 @@ $(document).ready(() => {
 
 	tabAddressLink.click((e) => {
 		e.preventDefault();
-
 		let target = $(e.target.getAttribute('href'));
 		if (target.length) {
 			e.target.parentElement.classList.add("course-tab__address--active");
 			let scrollTo = target.offset().top - 100;
 			$('body, html').animate({scrollTop: scrollTo + 'px'}, 500,'linear');
 		}
-	});
-
-	$('data-fancybox').fancybox({
-	// Options will go here
 	});
 
 	const switchers = [...document.querySelectorAll('.switcher')];
@@ -141,6 +143,42 @@ $(document).ready(() => {
 			switchers.forEach(item => item.parentElement.classList.remove('is-active'))
 			this.parentElement.classList.add('is-active')
 		})
-	})
+	});
+
+	$('[data-fancybox="account"]').fancybox({
+	// Options will go here
+		hideScrollbar : false,
+
+		afterShow: function( instance, current ) {
+		const signUpButton = $("#cs-form-signUp");
+		const signInButton = $("#cs-form-signIn");
+		const container = $("#cs-form-container");
+
+		signUpButton.on('click', () => {
+			container.addClass("right-panel-active")
+		});
+		signInButton.on('click', () => {
+			container.removeClass("right-panel-active");
+		});
+		},
+
+	});
+
+
+
+
+	$('[data-fancybox="exam1"]').fancybox({
+		hideScrollbar: false,
+		afterShow: function (instance, current) {
+		$('.exam_questions__detail').slick({
+			slidesToShow : 1,
+			slidesToScroll : 1,
+			autoplay: false,
+			centerMode: true,
+		});
+		}
+	});
+
+
 });
 

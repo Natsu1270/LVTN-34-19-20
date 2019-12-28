@@ -22,18 +22,18 @@
               <a href="{% url 'courses' %}">Explore</a>
             </li>
             {% if user.is_authenticated %}
-                <li class="nav-item active-nav cs-action-btn" id="logout-btn">
+                <li class="nav-item active-nav" id="logout-btn">
                     <form method="post" action="">
                         {% csrf_token %}
                         <input type="submit" class="btn cs-btn cs-btn--animated cs-btn--fixed nav-link" id="logout-input" value="Logout"/>
                     </form>
                 </li>
             {% else %}
-                <li class="nav-item active-nav " id="signup-btn">
-                  <a data-fancybox data-type="ajax" data-src="{% url 'accounts:signup' %}" class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="javascript:">Sign up</a>
-                </li>
+{#                <li class="nav-item active-nav " id="signup-btn">#}
+{#                  <a id="signup-btn" class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="javascript:">Sign up</a>#}
+{#                </li>#}
                 <li class="nav-item active-nav">
-                  <a data-fancybox data-type="ajax" data-src="#hidden-content" class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="javascript:">Log in</a>
+                  <a data-fancybox="account" data-type="ajax" data-animation-effect="zoom" data-src="{% url 'accounts:signin' %}" id="login-btn" class="cs-btn cs-btn--animated cs-btn--fixed nav-link" href="javascript:">Log in</a>
                 </li>
             {% endif %}
           </ul>
