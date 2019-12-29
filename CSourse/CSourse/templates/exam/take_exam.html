@@ -9,9 +9,9 @@
         question {{ forloop.counter }} of {{ questions.count }}
         {{ question.title }} - {{ question.content }}
       </div>
-      
+      {% endfor %} 
+
     </div>
-    {% endfor %} 
   
    {% endif %}
 </div>
