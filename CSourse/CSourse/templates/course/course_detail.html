@@ -18,7 +18,7 @@
         <h1 class="text--main text--main__bigger text-white">{{ course.name }}</h1>
         <p class="course-description text--sub text--sub__bigger mt-4">Kickstart your Career in Data Science & ML. Master data science, learn Python & SQL, analyze & visualize data, build machine learning models</p>
         <div class="d-flex enroll-area mt-5">
-          <a href="#" class="cs-btn cs-btn--animated cs-btn--banner cs-btn--white">
+          <a href="{% url 'course_learn' course.code %}" class="cs-btn cs-btn--animated cs-btn--banner cs-btn--white">
             Đăng ký học 
           </a>
           <div class="course-info">
@@ -43,7 +43,7 @@
       <li class="course-tab__address" id="tab-review"><a href="#cs-course-review" class="course-tab__address--link">Reviews</a></li>
       <li class="course-tab__address" id="tab-related"><a href="#cs-course-related" class="course-tab__address--link">Related courses</a></li>
       <li class="course-tab__btn">
-        <a href="#" class="cs-btn cs-btn--animated">Đăng ký ngay</a>
+        <a href="{% url 'course_learn' course.code %}" class="cs-btn cs-btn--animated">Đăng ký ngay</a>
 
         <a href="{% url 'exam:ability_exam' course.code %}" class="cs-btn cs-btn--animated"> Test năng lực</a>
       </li>
@@ -180,10 +180,6 @@
           </li>
         </ul>
         
-{#        <div class="section-course-components__tabs--slider slider">#}
-{#          <div class="indicator">#}
-{#          </div>#}
-{#        </div>#}
         
         <div class="section-course-components__tabs--content content ">
           <section>

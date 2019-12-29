@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="course-learn">
+    
+    <input type="radio" id="overview-tab" name="tab-control" checked>
+    <input type="radio" id="grades-tab" name="tab-control">
+    <input type="radio" id="forum-tab" name="tab-control">
+    <input type="radio" id="notification-tab" name="tab-control">
+    <input type="radio" id="info-tab" name="tab-control">
+    <nav class="sidebar">
+      <ul class="side-nav">
+        
+          <li class="side-nav__item--figure">
+            <img class="side-nav__item--avatar" src="{{ course.avatar.url }}" alt="">
+          </li>
+        
+          <li class="side-nav__item side-nav__item--active">
+              <label for="overview-tab" class="side-nav__link">
+                  <span class="side-nav__item--text">Overview</span>
+              </label>
+          </li>
+          <li class="side-nav__item">
+              <label for="grades-tab" class="side-nav__link">
+                  <span class="side-nav__item--text">Grades</span>
+              </label>
+          </li>
+          <li class="side-nav__item">
+              <label for="forum-tab" class="side-nav__link">
+                  <span class="side-nav__item--text">Discussion Forums</span>
+              </label>
+          </li>
+          <li class="side-nav__item">
+              <label for="notification-tab" class="side-nav__link">
+                  <span class="side-nav__item--text">Notifications</span>
+              </label>
+          </li>
+        
+          <li class="side-nav__item">
+              <label for="info-tab" class="side-nav__link">
+                  <span class="side-nav__item--text">Course info</span>
+              </label>
+          </li>
+      </ul>
+    </nav>
+    <main class="course-learn__home">
+      <div class="course-learn__content content">
+        <section class="course_learn__home--overview">
+          <h2 class="text--main section-course-overview__header" id="course-learn-overview">
+            {{course.name}}
+          </h2>
+        </section>
+        
+        <section class="course-learn__home--grades">
+          <h2 class="text--main section-course-overview__header" id="course-learn-grades">
+            Grades
+          </h2>
+        </section>
+        
+        <section class="course-learn__home--forum">
+          <h2 class="text--main section-course-overview__header" id="course-learn-forum">
+            Forum
+          </h2>
+        </section>
+        
+        <section class="course-learn__home--notification">
+          <h2 class="text--main section-course-overview__header" id="course-learn-notification">
+            Notification
+          </h2>
+        </section>
+        
+        <section class="course-learn__home--info">
+          <h2 class="text--main section-course-overview__header" id="course-learn-info">
+            Info
+          </h2>
+        </section>
+      </div>
+    </main>
+  </div>
+  
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

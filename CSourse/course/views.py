@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.shortcuts import render, get_object_or_404
 from .models import Course
 
@@ -22,3 +23,14 @@ def course_detail(request, course_code):
     context['course'] = course
     context['courses'] = relates
     return render(request, 'course/course_detail.html', context)
+
+
+def course_learn(request, course_code):
+    context = dict()
+    course = get_object_or_404(Course, code=course_code)
+    user = auth.get_user(request)
+    relates = Course.objects.order_by('rate_score').all()
+    context['course'] = course
+    context['user'] = user
+    context['relates'] = relates
+    return render(request, 'course/course_learn.html', context)

@@ -1,5 +1,7 @@
 .course-card-small {
 	&__avatar {
+		max-height: 180px;
+		overflow: hidden;
 	}
 	&__body {
 		padding: 1rem 2rem ;

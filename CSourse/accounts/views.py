@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .forms import SignUpForm, SignInForm
 
 
@@ -32,3 +32,9 @@ def sign_in(request):
     else:
         form = SignUpForm()
     return render(request, 'accounts/signin.html', {'form': form})
+
+
+def log_out(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('homepage')

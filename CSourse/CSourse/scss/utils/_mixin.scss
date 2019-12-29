@@ -59,8 +59,22 @@
         @content;
       }
 
-      #{$slider-selector} {
-        transform: translateX(#{100% * ($i - 1)});
+      #{$content-selector}:nth-child(#{$i}) {
+        display: block;
+      }
+    }
+  }
+}
+
+@mixin tabLearn(
+  $label-selector: "~ ul > li",
+  $slider-selector: "~ .slider",
+  $content-selector: "~ main > .content > section") {
+
+  @for $i from 1 through 100 {
+    &:nth-of-type(#{$i}):checked {
+      #{$label-selector}:nth-child(#{$i}) {
+        @content;
       }
 
       #{$content-selector}:nth-child(#{$i}) {

@@ -1,9 +1,7 @@
 .course-card {
-	backface-visibility: hidden;
 	&:hover {
 		transform: scale(1.05);
 		box-shadow: 0px 10px 20px 0px rgba(68,68,68,0.1);
-		backface-visibility: hidden;
 	}
 	transform-style: preserve-3d;
 	transition: transform 0.3s ease;
@@ -37,7 +35,7 @@
 				padding: 0.3rem;
 				border-radius: .3rem;
 				cursor: pointer;
-				width: 50%;
+				width: 70%;
 				margin: 0 auto;
 				transition: all 0.2s ease;
 				&:hover {

@@ -23,7 +23,7 @@
             </li>
             {% if user.is_authenticated %}
                 <li class="nav-item active-nav" id="logout-btn">
-                    <form method="post" action="">
+                    <form method="post" action="{% url 'accounts:logout' %}">
                         {% csrf_token %}
                         <input type="submit" class="btn cs-btn cs-btn--animated cs-btn--fixed nav-link" id="logout-input" value="Logout"/>
                     </form>

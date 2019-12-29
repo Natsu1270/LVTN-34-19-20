@@ -5,11 +5,27 @@
      
     <div class="exam_questions__detail">
       {% for question in questions %}
-      <div class="text--sub text--sub__medium">
-        question {{ forloop.counter }} of {{ questions.count }}
-        {{ question.title }} - {{ question.content }}
-      </div>
-      {% endfor %} 
+      
+        <div class="exam_question">
+         <div class="text--sub text--sub__bigger question_title">
+          Question {{ forloop.counter }} : {{ question.title }} - {{ question.content }}
+        </div>
+      
+        <div class="exam_questions__choices">
+          {% for choice in question.questionchoice_set.all %}
+            <input type="radio" id="choice-{{ choice }}" name="question-{{ question.id }}">
+            <label for="choice-{{ choice }}">
+              <span class="form__radio-label">
+              
+              </span> {{ choice.content }}</label>
+            
+          {% endfor %}
+        </div>  
+        </div>
+        
+      {% endfor %}
+
+      <input type="submit" class="cs-btn cs-btn--animated exam-btn-submit" value="Submit">
 
     </div>
   

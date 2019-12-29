@@ -12,6 +12,7 @@ import "@fancyapps/fancybox/dist/jquery.fancybox.css";
 // Slicky
 import "slick-carousel"
 import "slick-carousel/slick/slick.scss";
+import "slick-carousel/slick/slick-theme.scss";
 
 
 // Main style
@@ -168,15 +169,17 @@ $(document).ready(() => {
 
 
 	$('[data-fancybox="exam1"]').fancybox({
-		hideScrollbar: false,
-		afterShow: function (instance, current) {
-		$('.exam_questions__detail').slick({
-			slidesToShow : 1,
-			slidesToScroll : 1,
-			autoplay: false,
-			centerMode: true,
-		});
-		}
+		hideScrollbar: true,
+		// afterShow: function (instance, current) {
+		// $('.exam_questions__detail').slick({
+		// 	slidesToShow : 1,
+		// 	slidesToScroll : 1,
+		// 	autoplay: false,
+		// 	centerMode: true,
+		// 	infinite: false,
+		// 	variableWidth: true,
+		// });
+		// }
 	});
 
 
