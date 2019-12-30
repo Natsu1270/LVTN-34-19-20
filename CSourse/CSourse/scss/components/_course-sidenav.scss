@@ -9,6 +9,14 @@
     }
 
     &__item {
+		.collapse-week {
+			list-style-type: none;
+			padding-left: 5rem;
+			li {
+				margin-bottom: 2rem;
+				color: $color-grey-dark-2;
+			}
+		}
         position: relative;
 		&--text {
 			color: $color-grey-dark-2;
@@ -84,6 +92,11 @@
             flex-direction: column;
             padding: 1.5rem .5rem;
         }
+
+		.span-toggle {
+			cursor: pointer;
+		}
+
     }
 
     &__icon {

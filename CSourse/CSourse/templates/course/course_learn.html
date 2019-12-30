@@ -10,7 +10,7 @@
     <input type="radio" id="notification-tab" name="tab-control">
     <input type="radio" id="info-tab" name="tab-control">
     <nav class="sidebar">
-      <ul class="side-nav">
+      <ul class="side-nav" id="side-nav">
         
           <li class="side-nav__item--figure">
             <img class="side-nav__item--avatar" src="{{ course.avatar.url }}" alt="">
@@ -18,8 +18,14 @@
         
           <li class="side-nav__item side-nav__item--active">
               <label for="overview-tab" class="side-nav__link">
-                  <span class="side-nav__item--text">Overview</span>
+                  <span data-toggle="collapse" data-target="#collapse-weeks" aria-expanded="true" aria-controls="collapseWeek" class="side-nav__item--text span-toggle">Overview</span>
               </label>
+              <ul id="collapse-weeks" class="collapse show collapse-week" aria-labelledby="headingOne" data-parent="#side-nav">
+               <li>Week 1</li>
+               <li>Week 2</li>
+               <li>Week 3</li>
+               <li>Week 4</li>
+              </ul>
           </li>
           <li class="side-nav__item">
               <label for="grades-tab" class="side-nav__link">
