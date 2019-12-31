@@ -168,3 +168,17 @@ SVG_DIRS = [
 ]
 
 
+# Email settings
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'hungduy1270@gmail.com'
+EMAIL_HOST_PASSWORD = 'Zxzx1212'
+EMAIL_PORT=587
+
+
+LOGIN_REDIRECT_URL = "homepage"
+
+LOGIN_URL = "accounts:signin"
+
+LOGOUT_URL = "accounts:logout"
+
