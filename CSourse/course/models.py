@@ -1,5 +1,5 @@
 from django.db import models
-from accounts.models import Teacher
+from accounts.models import User
 from exam.models import AbilityExam
 from tinymce.models import HTMLField
 
@@ -33,7 +33,7 @@ class Course(models.Model):
     full_description = HTMLField()
     type = models.CharField(max_length=2, choices=COURSE_TYPE_CHOICES)
     level = models.CharField(max_length=2, choices=COURSE_LEVEL_CHOICES, default=None)
-    trainer = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    instructor = models.ForeignKey(User, on_delete=models.CASCADE)
     created_date = models.DateField()
     open_date = models.DateTimeField()
     end_date = models.DateTimeField()

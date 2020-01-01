@@ -92,3 +92,8 @@ button, input {
 	opacity: .7;
 	backdrop-filter: blur(10px);
 }
+
+.behind-spinner {
+	filter: brightness(50%);
+	-webkit-filter: brightness(50%);
+}

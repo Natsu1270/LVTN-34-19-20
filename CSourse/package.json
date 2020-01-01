@@ -28,6 +28,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "owl.carousel": "^2.3.4",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "spin.js": "^4.1.0"
   }
 }

@@ -38,16 +38,19 @@ INSTALLED_APPS = [
     'asset',
     'certificate',
     'exam',
+    'role',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'tinymce',
     'widget_tweaks',
     'webpack_loader',
     'svg',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +77,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -121,6 +127,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Auth User
+AUTH_USER_MODEL = 'accounts.User'
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.yahoo.YahooOpenId',
+
+    'accounts.authbackend.CSBackend',
+]
+
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -151,6 +172,10 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(PROJECT_PACKAGE, 'media')
 
+DEFAULT_AVATAR = 'account/profile/avatar/default-avatar.png'
+
+DEFAULT_AVATAR_URL = os.path.join(MEDIA_ROOT, DEFAULT_AVATAR)
+
 # Webpack
 WEBPACK_LOADER = {
     'DEFAULT': {
@@ -173,7 +198,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'hungduy1270@gmail.com'
 EMAIL_HOST_PASSWORD = 'Zxzx1212'
-EMAIL_PORT=587
+EMAIL_PORT = 587
 
 
 LOGIN_REDIRECT_URL = "homepage"
@@ -182,3 +207,5 @@ LOGIN_URL = "accounts:signin"
 
 LOGOUT_URL = "accounts:logout"
 
+
+PROJECT_NAME = 'CSourse'

@@ -14,9 +14,35 @@ import "slick-carousel"
 import "slick-carousel/slick/slick.scss";
 import "slick-carousel/slick/slick-theme.scss";
 
+// Spin.js
+import {Spinner} from "spin.js";
+import "spin.js/spin.css";
+
 
 // Main style
 import "../../scss/output.scss";
+
+
+const SpinOpts = {
+  lines: 14, // The number of lines to draw
+  length: 2, // The length of each line
+  width: 17, // The line thickness
+  radius: 20, // The radius of the inner circle
+  scale: 0.8, // Scales overall size of the spinner
+  corners: 1, // Corner roundness (0..1)
+  color: '#ffffff', // CSS color or array of colors
+  fadeColor: 'transparent', // CSS color or array of colors
+  speed: 2, // Rounds per second
+  rotate: 0, // The rotation offset
+  animation: 'spinner-line-shrink', // The CSS animation name for the lines
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  className: 'spinner', // The CSS class to assign to the spinner
+  top: '50%', // Top position relative to parent
+  left: '50%', // Left position relative to parent
+  shadow: '0 0 1px transparent', // Box-shadow for the lines
+  position: 'absolute' // Element positioning
+};
 
 $(document).ready(() => {
 	const $tab = $("#cs-course-tab");
@@ -29,7 +55,6 @@ $(document).ready(() => {
 	const mainHeader = $('#main-header');
 	const loginBtn = $("#login-btn");
 	const signupBtn = $("#signup-btn");
-
 
 	// Function to remove indicator border of tab link
 	function resetTabLinked() {
@@ -151,16 +176,97 @@ $(document).ready(() => {
 		hideScrollbar : false,
 
 		afterShow: function( instance, current ) {
-		const signUpButton = $("#cs-form-signUp");
-		const signInButton = $("#cs-form-signIn");
-		const container = $("#cs-form-container");
+			const signUpButton = $("#cs-form-signUp");
+			const signInButton = $("#cs-form-signIn");
+			const container = $("#cs-form-container");
 
-		signUpButton.on('click', () => {
-			container.addClass("right-panel-active")
-		});
-		signInButton.on('click', () => {
-			container.removeClass("right-panel-active");
-		});
+			signUpButton.on('click', () => {
+				container.addClass("right-panel-active")
+			});
+			signInButton.on('click', () => {
+				container.removeClass("right-panel-active");
+			});
+
+			$("#login-form").submit(function (e) {
+
+				let url = $('#login-form').attr('action');
+
+				e.preventDefault();
+				$("#login-form").addClass('behind-spinner');
+				let target = document.getElementById("login-container");
+				let spinner = new Spinner(SpinOpts).spin(target);
+
+
+				let formData = {
+					csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+					username: $('#login-username').val(),
+					password: $('#login-password').val(),
+					contentType: 'application/x-www-form-urlencoded',
+					encode: true,
+				};
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					url: url,
+					data: formData,
+					success: response => {
+						if(response.result) {
+							location.reload()
+						} else {
+							$('.alert-login').css('display','block');
+							$('#login-err-msg').text(response.message);
+						}
+					},
+					error: err => {
+						$('.alert-login').css('display','block');
+						$('#login-err-msg').text("Opps something went wrong!");
+					}
+				}).done(data => {
+					$("#login-form").removeClass('behind-spinner');
+					spinner.stop();
+				});
+			});
+
+			$("#signup-form").submit(function (e) {
+
+				let url = $('#signup-form').attr('action');
+
+				e.preventDefault();
+
+				$("#signup-form").addClass('behind-spinner');
+				let target = document.getElementById("sign-up-container");
+				let spinner = new Spinner(SpinOpts).spin(target);
+				let formData = {
+					csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+					username: $('#signup-username').val(),
+					email: $('#signup-email').val(),
+					password: $('#signup-password').val(),
+					contentType: 'application/x-www-form-urlencoded',
+					encode: true,
+				};
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					url: url,
+					data: formData,
+					success: response => {
+						if(response.result) {
+							location.reload()
+						} else {
+							$('.alert-signup').css('display','block');
+							$('#signup-err-msg').text(response.message);
+						}
+					},
+					error: err => {
+						$('.alert-signup').css('display','block');
+						$('#signup-err-msg').text("Opps something went wrong!");
+					}
+				}).done(data => {
+					$("#signup-form").removeClass('behind-spinner');
+					spinner.stop();
+				});
+			});
+
 		},
 
 	});

@@ -1,0 +1,112 @@
+{% load widget_tweaks %}
+<div class="cs-account-form__container cs-signup" id="cs-form-container">
+
+    <div class="form-container sign-in-container">
+      <form action="{% url 'accounts:user_connect' %}" id="login-form" method="post" autocomplete="off">
+        {% csrf_token %}
+        <h1 class="cs-account-form__title1">Log In</h1>
+        <div class="social-container">
+          <a href="" class="social social--fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="" class="social social--gm"><i class="fab fa-google-plus-g"></i></a>
+          <a href="" class="social social--lk"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        {% for hidden_field in log_in_form.hidden_fields %}
+            {{ hidden_field }}
+        {% endfor %}
+        <span class="text--sub__bigger">or use your account</span>
+        <div class="form-group">
+          {% if log_in_form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                {% for error in log_in_form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+          {% endif %}
+          {% for field in log_in_form.visible_fields %}
+          {{ field.label_tag }}
+            {% if log_in_form.is_bound %}
+              {% if field.errors %}
+                  {% render_field field class="form-control is-invalid" %}
+                  {% for error in field.errors %}
+                      <div class="invalid-feedback">
+                        {{ error }}
+                      </div>
+                  {% endfor %}
+                {% else %}
+                  {% render_field field class="form-control is-valid" %}
+                {% endif %}
+                {% else %}
+                      {% render_field field class="form-control" %}
+            {% endif %}
+            {% if field.help_text %}
+                <small>{{ field.help_text }}</small>
+            {% endif %}
+        {% endfor %}
+          <a href="#"><span class="text--sub">Forgot your password?</span></a>
+        </div>
+        <button type="submit" name="login">Log In</button>
+      </form>
+    </div>
+  
+   <div class="form-container sign-up-container">
+      <form action="{% url 'accounts:user_connect' %}" method="post">
+        {% csrf_token %}
+        <h1 class="cs-account-form__title1">Create Account</h1>
+        <div class="social-container">
+          <a href="" class="social social--fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="" class="social social--gm"><i class="fab fa-google-plus-g"></i></a>
+          <a href="" class="social social--lk"><i class="fab fa-linkedin-in"></i></a>
+        </div>  
+        {% for hidden_field in sign_up_form.hidden_fields %}
+            {{ hidden_field }}
+        {% endfor %}
+        <span class="text--sub__bigger">or use your email for registration</span>
+         <div class="form-group">
+           {% if sign_up_form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">
+              {% for error in sign_up_form.non_field_errors %}
+                  {{ error }}
+              {% endfor %}
+          </div>
+        {% endif %}
+        {% for field in sign_up_form.visible_fields %}
+          {{ field.label_tag }}
+            {% if sign_up_form.is_bound %}
+              {% if field.errors %}
+                  {% render_field field class="form-control is-invalid" %}
+                  {% for error in field.errors %}
+                      <div class="invalid-feedback">
+                        {{ error }}
+                      </div>
+                  {% endfor %}
+                {% else %}
+                  {% render_field field class="form-control is-valid" %}
+                {% endif %}
+                {% else %}
+                      {% render_field field class="form-control" %}
+            {% endif %}
+            {% if field.help_text %}
+                <small>{{ field.help_text }}</small>
+            {% endif %}
+        {% endfor %}
+         </div>
+        <button type="submit" name="signup">Sign Up</button>
+      </form>
+    </div>
+
+  
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1 class="cs-account-form__title2">Already Sign Up</h1>
+					<p class="text--sub">Time to learn</p>
+					<button class="ghost" id="cs-form-signIn">Log In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1 class="cs-account-form__title2">New To CSourse</h1>
+					<p class="text--sub">Sign up now to start</p>
+					<button class="ghost" id="cs-form-signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>	
+</div>
