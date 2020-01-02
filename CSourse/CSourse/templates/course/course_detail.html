@@ -23,7 +23,7 @@
           </a>
           <div class="course-info">
             <p class="text-white text--sub">Khoá học bắt đầu vào : {{ course.pretty_date }}</p>
-            <p class="text-white text--sub">Giảng viên : {{ course.trainer.profile.fullname }}</p>
+            <p class="text-white text--sub">Giảng viên : {{ course.instructor.get_full_name }}</p>
             <p class="text-white text--sub">Điểm đánh giá: {{ course.rate_score }} ({{ course.rate_num }} ratings)</p>
           </div>
         </div>
@@ -217,11 +217,11 @@
     <div class="section-course-tutors--content">
       <div class="section-course-tutors--content__main">
         <figure class="section-course-tutors--content__avatar">
-          <img src="{{ course.trainer.profile.avatar.url }}" alt="" class="section-course-tutors--content__img">
+          <img src="{{ course.instructor.profile.avatar.url }}" alt="" class="section-course-tutors--content__img">
         </figure>
         <div class="section-course-tutors--content__info">
-          <span class="tutor-name mb-2"><a href="#">{{ course.trainer.profile.fullname }}</a></span>
-          <span class="tutor-email">{{ course.trainer.profile.email }}</span>
+          <span class="tutor-name mb-2"><a href="#">{{ course.instructor.get_full_name }}</a></span>
+          <span class="tutor-email">{{ course.instructor.email }}</span>
         </div>
       </div>
     </div>

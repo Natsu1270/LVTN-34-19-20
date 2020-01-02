@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'certificate',
     'exam',
     'role',
+    'profiles',
+    'question',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,11 +48,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
+    'django.contrib.sites',
     'tinymce',
     'widget_tweaks',
     'webpack_loader',
     'svg',
-    'social_django',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.linkedin',
+    # 'sslserver'
 ]
 
 MIDDLEWARE = [
@@ -77,9 +86,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -131,15 +137,33 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'accounts.User'
 
 AUTHENTICATION_BACKENDS = [
-    'social_core.backends.open_id.OpenIdAuth',
-    'social_core.backends.google.GoogleOpenId',
-    'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.google.GoogleOAuth',
-    'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.yahoo.YahooOpenId',
-
     'accounts.authbackend.CSBackend',
 ]
+
+SITE_ID = 1
+
+LOGIN_DIRECT_URL = '/'
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '123',
+            'secret': '456',
+            'key': ''
+        }
+    },
+    'facebook': {
+        'APP': {
+            'client_id': '468978337348764',
+            'secret': 'bd3fbe15abfd0e545ee7e1ea7de0b705',
+            'key': ''
+        }
+    }
+}
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import User, Profile
 from django.conf import settings
+from .models import User
 
 
 admin.site.site_header = settings.PROJECT_NAME + ' admin'
@@ -12,7 +12,3 @@ class UserAdmin(admin.ModelAdmin):
     exclude = ('groups', 'user_permissions', 'email_hash')
     search_fields = ('username', 'first_name', 'email')
 
-
-@admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'gender', 'phone_number')

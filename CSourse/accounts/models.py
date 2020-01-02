@@ -13,9 +13,6 @@ from .utils import hash_email
 
 class UserManager(BaseUserManager):
     def _create_user(self, username, email, password, **extra_fields):
-        """
-        Create and save a user with the given username, email, and password.
-        """
         if not username:
             raise ValueError('The given username must be set')
         if not email:
@@ -72,7 +69,7 @@ class User(AbstractUser):
     objects = UserManager()
 
     def __str__(self):
-        return self.get_full_name()
+        return self.username
 
     @property
     def require_activation_by_admin(self):
@@ -87,47 +84,7 @@ class User(AbstractUser):
         self.email_hash = hash_email(new_email)
 
 
-class Profile(models.Model):
-    MALE = 'M'
-    FEMALE = 'F'
-    OTHER = 'O'
-    NOT_SAY = 'N'
-    GENDER_CHOICES = [
-        (MALE, 'Male'),
-        (FEMALE, 'Female'),
-        (OTHER, 'Other'),
-        (NOT_SAY, 'Rather not say')
-    ]
 
-    user = models.OneToOneField(User, related_name='user_profile', on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='account/profile/avatar')
-    phone_number = models.CharField(max_length=20, blank=True)
-    birth_date = models.DateField(blank=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    bio = models.CharField(max_length=255, blank=True)
-    address = models.CharField(max_length=255, blank=True)
-    social = HStoreField(default=dict)
-
-    university = models.CharField(max_length=255, blank=True)
-    major = models.CharField(max_length=255, blank=True)
-    occupation = models.CharField(max_length=20, blank=True)
-
-    allow_viewing = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.user.get_full_name()
-
-    @property
-    def get_avatar(self):
-        if self.avatar:
-            return self.avatar
-        else:
-            return settings.DEFAULT_AVATAR_URL
-
-    @property
-    def get_age(self):
-        delta_day = date.today() - self.birth_date
-        return delta_day.days // 365
 
 
 

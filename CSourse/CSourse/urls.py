@@ -26,12 +26,8 @@ urlpatterns = [
     path('about/', TemplateView.as_view(template_name='about.html'), name="about"),
     path('accounts/', include('accounts.urls')),
     path('exam/', include('exam.urls')),
-
-
     # django-tinymce
     path('tinymce/', include('tinymce.urls')),
 
-    # social login
-    path('social/', include('social_django.urls', namespace='social'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
